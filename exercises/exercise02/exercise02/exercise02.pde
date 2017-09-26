@@ -1,3 +1,9 @@
+// This it's like a pong like setup.
+// there is a paddle at the bottom center of the screen. you can move this paddle left and right but not beyound the screen.
+// a ball appears in the center and moves diagonaly right downwards. Resets if it goes off the bottem screen but bonces of the top, left and right side of the screen. 
+// also the ball bonces of the paddle if touched. 
+// The backgorund has a Static effect. 
+
 color backgroundColor = color(0);
 
 int numStatic = 1000;
@@ -21,40 +27,40 @@ int ballSpeed = 5;
 int ballSize = 16;
 color ballColor = color(255);
 
-void setup() {
+void setup() {          // setups the ball and Paddle to appear when the application. 
   size(640, 480);
   
   setupPaddle();
   setupBall();
 }
 
-void setupPaddle() {
-  paddleX = width/2;
-  paddleY = height - paddleHeight;
-  paddleVX = 0;
+void setupPaddle() {                 // This sets the Paddle's width, height, and intail X velocity to 0.
+  paddleX = width/2;                 
+  paddleY = height - paddleHeight;   
+  paddleVX = 0;                     
 }
 
-void setupBall() {
-  ballX = width/2;
+void setupBall() {                   // Sets the balls width and height. 
+  ballX = width/2;                   // also sets the ball's X and Y velocity to the ball's speed. 
   ballY = height/2;
   ballVX = ballSpeed;
   ballVY = ballSpeed;
 }
 
-void draw() {
-  background(backgroundColor);
+void draw() {                     
+  background(backgroundColor);       // Draws the back ground
 
-  drawStatic();
+  drawStatic();                      //uses the static function to case the stactic effect. 
 
-  updatePaddle();
-  updateBall();
+  updatePaddle();                    // updates where the paddle needs to be.
+  updateBall();                      // upadtes where the ball should be
 
-  drawPaddle();
-  drawBall();
+  drawPaddle();                      //draws the paddle
+  drawBall();                        //draws the ball. 
 }
 
-void drawStatic() {
-  for (int i = 0; i < numStatic; i++) {
+void drawStatic() {                                          // Cause the program to draw the square in random locations in on the screen.
+  for (int i = 0; i < numStatic; i++) {                      
    float x = random(0,width);
    float y = random(0,height);
    float staticSize = random(staticSizeMin,staticSizeMax);
@@ -63,13 +69,13 @@ void drawStatic() {
   }
 }
 
-void updatePaddle() {
+void updatePaddle() {                                        // allows the paddle to move horizontal along the x axis and keeps the paddle from moving out of the srceen
   paddleX += paddleVX;  
   paddleX = constrain(paddleX,0+paddleWidth/2,width-paddleWidth/2);
 }
 
-void updateBall() {
-  ballX += ballVX;
+void updateBall() {            
+  ballX += ballVX;        //updates where the ball should be moving based on the velocity and if the ball collides with the padle, wall or bottom .  
   ballY += ballVY;
   
   handleBallHitPaddle();
@@ -77,28 +83,28 @@ void updateBall() {
   handleBallOffBottom();
 }
 
-void drawPaddle() {
+void drawPaddle() {      // draws the paddle, sets it's size, hight and colors it, and draws the paddle to it's location
   rectMode(CENTER);
   noStroke();
   fill(paddleColor);
   rect(paddleX, paddleY, paddleWidth, paddleHeight);
 }
 
-void drawBall() {
-  rectMode(CENTER);
+void drawBall() {      //draws balls, sets it's size, hight and colors it, and the balls to it's location 
+  rectMode(CENTER);    
   noStroke();
   fill(ballColor);
   rect(ballX, ballY, ballSize, ballSize);
 }
 
-void handleBallHitPaddle() {
+void handleBallHitPaddle() {          // if the ball and paddle collide, bonces the ball of the paddle. 
   if (ballOverlapsPaddle()) {
     ballY = paddleY - paddleHeight/2 - ballSize/2;
     ballVY = -ballVY;
   }
 }
 
-boolean ballOverlapsPaddle() {
+boolean ballOverlapsPaddle() {      // checks if the ball touchs the paddle.
   if (ballX - ballSize/2 > paddleX - paddleWidth/2 && ballX + ballSize/2 < paddleX + paddleWidth/2) {
     if (ballY > paddleY - paddleHeight/2) {
       return true;
@@ -107,18 +113,18 @@ boolean ballOverlapsPaddle() {
   return false;
 }
 
-void handleBallOffBottom() {
+void handleBallOffBottom() {            //sets the ball back to the center if the ball goes of bottem screen.
   if (ballOffBottom()) {
     ballX = width/2;
     ballY = height/2;
   }
 }
 
-boolean ballOffBottom() {
+boolean ballOffBottom() {                // if ball going off the screen flag if it's ture. 
   return (ballY - ballSize/2 > height);
 }
 
-void handleBallHitWall() {
+void handleBallHitWall() {              // tells the ball what to do if it touchs any of the walls.
   if (ballX - ballSize/2 < 0) {
     ballX = 0 + ballSize/2;
     ballVX = -ballVX;
@@ -127,14 +133,14 @@ void handleBallHitWall() {
     ballVX = -ballVX;
   }
   
-  if (ballY - ballSize/2 < 0) {
+  if (ballY - ballSize/2 < 0) {        
     ballY = 0 + ballSize/2;
     ballVY = -ballVY;
   }
 }
 
-void keyPressed() {
-  if (keyCode == LEFT) {
+void keyPressed() {                    // if the left arrow key is pressed move the paddle left
+  if (keyCode == LEFT) {               // if the right arrow key is pressed move the paddle right
     paddleVX = -paddleSpeed;
   } else if (keyCode == RIGHT) {
     paddleVX = paddleSpeed;
@@ -142,7 +148,7 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  if (keyCode == LEFT && paddleVX < 0) {
+  if (keyCode == LEFT && paddleVX < 0) {          //when the arrow keys are released stop the padlle from moving
     paddleVX = 0;
   } else if (keyCode == RIGHT && paddleVX > 0) {
     paddleVX = 0;
