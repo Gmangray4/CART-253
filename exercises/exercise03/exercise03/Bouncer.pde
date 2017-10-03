@@ -11,7 +11,7 @@ class Bouncer {
  color fillColor;
  color defaultColor;
  color hoverColor;
- 
+ boolean mouseClick; 
  
  // The Constructor of the class and all the arguments that make the Object.
  //temp is used so you could set different properties for an extra Bouncer. 
@@ -70,4 +70,10 @@ class Bouncer {
    fill(fillColor);
    ellipse(x,y,size,size);
  }
-}
+ 
+ //when clicked change size of bouncer.
+ void ChangeSizeWhenClicked() {
+   if (mouseClick ==true)
+    size = floor(random(20,100));
+   }
+ }

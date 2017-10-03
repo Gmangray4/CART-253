@@ -1,3 +1,5 @@
+//Gordon Gray
+
 //The code Makes two circles, a blue and a red one, bounce off the walls and color the screen as time goes by.
 
 
@@ -26,4 +28,12 @@ void draw() {
   bouncer2.update();
   bouncer.draw();
   bouncer2.draw();
+}
+
+//Checks for my function to change the size of the bouncer when clicking the mouse. 
+void mouseClicked() {
+bouncer.mouseClick = true;
+bouncer.ChangeSizeWhenClicked();
+bouncer2.mouseClick = true;
+bouncer2.ChangeSizeWhenClicked();
 }
