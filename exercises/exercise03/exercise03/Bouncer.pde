@@ -41,10 +41,15 @@ class Bouncer {
   // checks if touching left or right side of screen. Bouces off if so.
    if (x - size/2 < 0 || x + size/2 > width) {
     vx = -vx; 
+   // if bouncer touchs the left or right side of the screen move to a random location
+    x = floor(random(0,480));
+    y = floor(random(0,640));
    }
    // checks if touching the top screen or bottom. Bouces off the top or bottom
    if (y - size/2 < 0 || y + size/2 > height) {
      vy = -vy;
+     //Change color of the bouncer if the bottom or top screen is touched
+     defaultColor = color(random(0, 255), random(0, 255), random(0, 255)); 
    }
    //makes sure that Bouncer never goes of the screen
    x = constrain(x,size/2,width-size/2);
