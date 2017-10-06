@@ -56,7 +56,7 @@ void update(){
     }
 
     // Constrain the paddle's y position to be in the window
-    y = constrain(y,0 + size/2,height - size/2);
+    y = constrain(y,0 + HEIGHT/2,height - HEIGHT/2);
 }
   
 void display(){
