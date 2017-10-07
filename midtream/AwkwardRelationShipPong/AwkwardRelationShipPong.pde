@@ -17,6 +17,7 @@ Score score;
 
 //My Global variables;
 
+// My Classes for Player 1 and 2's Half Heart.
 leftHeart p1HalfHeart;
 rightHeart p2HalfHeart;
 Text text;
@@ -53,11 +54,13 @@ void setup() {
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
   
+  //This is the set up for my Heart paddles class and controls. 
   p1HalfHeart = new leftHeart(PADDLE_INSET, height/2,'w', 's');
   p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, 'o', 'l');
   score = new Score();
+  text = new Text();
   
-  // Loads the images into processing
+  // Loads the png images into processing
   lHeart = loadImage("Heart_05.png");   
   rHeart = loadImage("Heart_03.png");  
   redHeart = loadImage("Heart_10.png");
@@ -78,27 +81,35 @@ void draw() {
   ball.update();
   p1HalfHeart.update();
   p2HalfHeart.update();
+  
   // Check if the ball has collided with either paddle
   ball.collide(leftPaddle);
   ball.collide(rightPaddle);
   ball.collide(p1HalfHeart);
   ball.collide(p2HalfHeart);
   
-  println(p1HalfHeart.x);
+  
+  println(text.textNumberForP1);
 
-  // Check if the ball has gone off the screen
+  // Check if the ball has gone off the right side of the screen
   //if (ball.isOffScreen()) {
     // If it has, reset the ball
-   // ball.reset();    
-  //}
+   // ball.reset();  
+ 
   if (ball.isOffScreenRight()){
     score.updateP1();
     ball.reset();
+    //Makes the half haert for p1 appear
     p1HalfHeart.appear();
+    //strats colloision fo the left Heart
     ball.beginCollisionForLeftHeart();
+    //the heart half haert moves closer to the center and gets bigger.
     p1HalfHeart.MoveTowardTheCenter();
     p1HalfHeart.heartGetsBigger();
+    text.changeTextOfScreenRight();
+    
   }
+  // Check if the ball has gone off the Left side of the screen
   if (ball.isOffScreenLeft()){
     score.updateP2();
     ball.reset();
@@ -106,6 +117,8 @@ void draw() {
     ball.beginCollisionForRightHeart();
     p2HalfHeart.MoveTowardTheCenter();
     p2HalfHeart.heartGetsBigger();
+   
+    text.changeTextOfScreenLeft();
   }
   
   //if  (p1HalfHeart.heartBiggerThenScreen)(){}
@@ -118,6 +131,7 @@ void draw() {
   p2HalfHeart.display();
   ball.display();
   score.display();
+  text.display();
 }
 
 // keyPressed()
