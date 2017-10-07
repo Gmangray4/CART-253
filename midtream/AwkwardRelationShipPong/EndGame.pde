@@ -37,7 +37,6 @@ class EndGame {
    if(p1HalfHeart.Speed == 0 || p2HalfHeart.Speed == 0){
       textSize(30);
       fill(0);
-      textMode(CENTER);
       text(TheAwkwardLoverText[TheAwkwardLoverIsP1OrP2], 414, 300);
       text(WinText[TheAwkwardLoverIsP1OrP2], 414, 350);
   }
