@@ -37,6 +37,7 @@ class Ball {
     y = _y;
     vx = SPEED;
     vy = SPEED;
+    pinkHeart = loadImage("Heart_09.png");
   }
 
 

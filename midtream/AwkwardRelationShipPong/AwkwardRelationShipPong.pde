@@ -23,18 +23,19 @@ rightHeart p2HalfHeart;
 Text text;
 EndGame gameover;
 Background playerBackground;
+Emoji emoji;
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
 // The background colour during play (black)
-color backgroundColor = color(252,96,98);
+
 
 // Images for my Hearts
 PImage lHeart;
 PImage rHeart;
-PImage redHeart;
 PImage pinkHeart;
+PImage[] PlayerEmoji = new PImage[5];
 
 // setup()
 //
@@ -52,23 +53,22 @@ void setup() {
   // NOTE: On a mac you can run into trouble if you use keys that create that popup of
   // different accented characters in text editors (so avoid those if you're changing this)
   leftPaddle = new Paddle(PADDLE_INSET, height/2, 'w', 's');
-  rightPaddle = new Paddle(width - PADDLE_INSET, height/2, 'o', 'l');
+  rightPaddle = new Paddle(width - PADDLE_INSET, height/2, 'i', 'k');
  
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
   
   //This is the set up for my Heart paddles class and controls. 
   p1HalfHeart = new leftHeart(PADDLE_INSET, height/2,'w', 's');
-  p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, 'o', 'l');
+  p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, 'i', 'k');
   score = new Score();
   text = new Text();
+  
+  emoji = new Emoji();
   gameover = new EndGame();
   
   // Loads the png images into processing
-  lHeart = loadImage("pinkHeartv2_3.png");   
-  rHeart = loadImage("pinkHeartv2_2.png");  
-  redHeart = loadImage("Heart_10.png");
-  pinkHeart = loadImage("Heart_09.png");
+ 
 }
 
 // draw()
@@ -78,7 +78,6 @@ void setup() {
 
 void draw() {
   // Fill the background each frame so we have animation
-  background(backgroundColor);
   playerBackground.display();
   // Update the paddles and ball by calling their update methods
   leftPaddle.update();
@@ -104,6 +103,7 @@ void draw() {
  
   if (ball.isOffScreenRight()){
     score.updateP1();
+    emoji.EmojiIfOfScreenRight();
     ball.reset();
     //Makes the half haert for p1 appear
     p1HalfHeart.appear();
@@ -119,6 +119,7 @@ void draw() {
   // Check if the ball has gone off the Left side of the screen
   if (ball.isOffScreenLeft()){
     score.updateP2();
+    emoji.EmojiIfOfScreenLeft();
     ball.reset();
     p2HalfHeart.appear();
     ball.beginCollisionForRightHeart();
@@ -132,14 +133,14 @@ void draw() {
   //if  (p1HalfHeart.heartBiggerThenScreen)(){}
 
   // Display the paddles and the ball
-
+  text.display();
+  emoji.display();
   leftPaddle.display();
   rightPaddle.display();
   p1HalfHeart.display(); 
   p2HalfHeart.display();
   ball.display();
   score.display();
-  text.display();
   gameover.display();
 }
 

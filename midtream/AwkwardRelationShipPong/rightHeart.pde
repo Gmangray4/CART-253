@@ -25,6 +25,9 @@ class rightHeart {
     y = _y;
     upKey = _upKey;
     downKey = _downKey;
+    
+    rHeart = loadImage("pinkHeartv2_2.png"); 
+    
   }
  
   void appear() {

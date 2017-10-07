@@ -5,9 +5,6 @@ class Background{
   Background(){
   }
   
-  void update(){
-  
-  }
   void display(){
     noStroke();
     fill(player1Color,0,0);

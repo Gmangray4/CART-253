@@ -63,7 +63,7 @@ class Text {
     textMode(CENTER);
     text(loverP1Text[textNumberForP1], 50, 570);
     fill(255);
-    text(loverP2Text[textNumberForP2], 700, 570);
+    text(loverP2Text[textNumberForP2], 560, 570);
   }
   
   void changeTextOfScreenRight(){

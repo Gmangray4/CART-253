@@ -23,11 +23,13 @@ class EndGame {
     if(p1HalfHeart.Speed == 0){
       TheAwkwardLoverIsP1OrP2 = 1;
       stopContolsWhenGameIsOver = true;
+      emoji.player2WinEmoji();
       
     }
     if(p2HalfHeart.Speed == 0){
       TheAwkwardLoverIsP1OrP2 = 2;
       stopContolsWhenGameIsOver = true;
+      emoji.player1WinEmoji();
     }
   }
   

@@ -19,10 +19,13 @@ class leftHeart {
   char downKey;
   
   leftHeart(int _x, int _y,char _upKey, char _downKey) {
+    
     x = _x;
     y = _y;
     upKey = _upKey;
     downKey = _downKey;
+    
+    lHeart = loadImage("pinkHeartv2_3.png");
   }
  
  
