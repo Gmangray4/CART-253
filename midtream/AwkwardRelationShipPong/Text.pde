@@ -27,7 +27,7 @@ class Text {
     loverP1Text[15] = "I'll wait for you";
     loverP1Text[16] = "ahh Hugs?";
     loverP1Text[17] = "Come Here Often?";
-    loverP1Text[18] = "...";
+    loverP1Text[18] = "Hey Sugar Pie";
     loverP1Text[19] = ":D";
 
     loverP2Text[0] = "...";
@@ -49,7 +49,7 @@ class Text {
     loverP2Text[15] = "I'll wait for you";
     loverP2Text[16] = "ahh Hugs?";
     loverP2Text[17] = "Come Here Often?";
-    loverP2Text[18] = "...";
+    loverP2Text[18] = "Hey Sugar Pie";
     loverP2Text[19] = ":D";
     
     textNumberForP1 = 0;

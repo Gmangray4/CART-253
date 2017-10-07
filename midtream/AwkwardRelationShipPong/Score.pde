@@ -30,4 +30,12 @@ void display(){
   text(player2Score,p2x,y);
 }
 
+ boolean player1Loses() {
+    return (player1Score == 24);
+  }
+  
+ boolean player2Loses() {
+    return (player2Score == 24);
+  }
+
 }

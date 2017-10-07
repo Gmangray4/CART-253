@@ -7,6 +7,7 @@ class rightHeart {
  
   boolean firstContact;
   boolean stopForwardMovementWhenHeartIsInCenter;
+  boolean stopContolsWhenGameIsOver;
   
   //center 516
   

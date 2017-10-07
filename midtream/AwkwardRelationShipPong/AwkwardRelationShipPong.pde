@@ -21,6 +21,7 @@ Score score;
 leftHeart p1HalfHeart;
 rightHeart p2HalfHeart;
 Text text;
+EndGame gameover;
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
@@ -59,6 +60,7 @@ void setup() {
   p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, 'o', 'l');
   score = new Score();
   text = new Text();
+  gameover = new EndGame();
   
   // Loads the png images into processing
   lHeart = loadImage("Heart_05.png");   

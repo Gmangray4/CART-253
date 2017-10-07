@@ -25,9 +25,7 @@ class leftHeart {
     downKey = _downKey;
   }
  
-  boolean heartBiggerThenScreen() {
-    return (y > 1024);
-  }
+ 
   //Makes the heart appear
   void appear() {
     firstContact = true;
