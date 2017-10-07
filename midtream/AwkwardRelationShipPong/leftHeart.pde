@@ -43,7 +43,7 @@ class leftHeart {
  //This increase the left hearts size
   void heartGetsBigger(){
     size += 50;
-    Speed -= 2;
+    Speed -= 1;
   }
  
 void update(){

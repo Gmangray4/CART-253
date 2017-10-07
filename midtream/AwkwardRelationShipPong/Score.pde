@@ -8,7 +8,6 @@ int p1x;
 int p2x;
 int y;
 
-
 Score(){
   p1x = 50;
   p2x = 950;
