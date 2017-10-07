@@ -1,20 +1,35 @@
-// Pong
+// Awkward Relationship Pong!
+// By Gordon Roland Gray
+//____________________________________________________________________________________
+              // Instructions //
+                      
+// Goal: Scroe as many Hearts into your oppents side of the screen to have their ackward love level increase. 
+// Your Ackward love level is represented in two ways:  1) the level of redness on your side of the screen.
+//                                                      2) the size of the half heart that appears on your side.
+// The player who's Screen becomes completely Red becomes the Ackward lover and loses the game. 
 
-// A simple version of Pong using object-oriented programming.
-// Allows to people to bounce a ball back and forth between
-// two paddles that they control.
+              // Contorls//
+// Player 1                 Player 2
+// Move paddle up   = w     Move paddle up   = i    
+// Move paddle down = s     Move paddle down = k
 
-// No scoring. (Yet!)
-// No score display. (Yet!)
-// Pretty ugly. (Now!)
-// Only two paddles. (So far!)
+//Credits
+// Thansk to Piskelapp.com as my Tool for creating this projects Pngs
+// This webiste is free open souce wesite where you can qucikly and easlity creaie your own sprites. 
+// Link (https://www.piskelapp.com/) 
+
+//  And special thanks to thoses who gave suggestions for the  
+//  awkward pickup lines and turn downs.
+
+//  Ching Su
+//____________________________________________________________________________________
 
 // Global variables for the paddles and the ball
 Paddle leftPaddle;
 Paddle rightPaddle;
 Ball ball;
-Score score;
 
+//BgmForPong.wav
 //My Global variables;
 
 // My Classes for Player 1 and 2's Half Heart.
@@ -24,6 +39,7 @@ Text text;
 EndGame gameover;
 Background playerBackground;
 Emoji emoji;
+
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
@@ -46,6 +62,8 @@ void setup() {
   size(1024, 600);
   frameRate(30);
 
+  // Load a soundfile from the /data folder of the sketch and play it back
+  
   playerBackground = new Background();
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y
@@ -61,7 +79,6 @@ void setup() {
   //This is the set up for my Heart paddles class and controls. 
   p1HalfHeart = new leftHeart(PADDLE_INSET, height/2,'w', 's');
   p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, 'i', 'k');
-  score = new Score();
   text = new Text();
   
   emoji = new Emoji();
@@ -92,9 +109,7 @@ void draw() {
   ball.collide(rightPaddle);
   ball.collide(p1HalfHeart);
   ball.collide(p2HalfHeart);
-  
-  
-  println(gameover.TheAwkwardLoverIsP1OrP2);
+ 
 
   // Check if the ball has gone off the right side of the screen
   //if (ball.isOffScreen()) {
@@ -102,7 +117,6 @@ void draw() {
    // ball.reset();  
  
   if (ball.isOffScreenRight()){
-    score.updateP1();
     emoji.EmojiIfOfScreenRight();
     ball.reset();
     //Makes the half haert for p1 appear
@@ -118,7 +132,6 @@ void draw() {
   }
   // Check if the ball has gone off the Left side of the screen
   if (ball.isOffScreenLeft()){
-    score.updateP2();
     emoji.EmojiIfOfScreenLeft();
     ball.reset();
     p2HalfHeart.appear();
@@ -133,14 +146,14 @@ void draw() {
   //if  (p1HalfHeart.heartBiggerThenScreen)(){}
 
   // Display the paddles and the ball
-  text.display();
+  
   emoji.display();
   leftPaddle.display();
   rightPaddle.display();
   p1HalfHeart.display(); 
   p2HalfHeart.display();
   ball.display();
-  score.display();
+  text.display();
   gameover.display();
 }
 
