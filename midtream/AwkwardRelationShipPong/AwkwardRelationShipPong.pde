@@ -65,8 +65,8 @@ void setup() {
   gameover = new EndGame();
   
   // Loads the png images into processing
-  lHeart = loadImage("Heart_05.png");   
-  rHeart = loadImage("Heart_03.png");  
+  lHeart = loadImage("pinkHeartv2_3.png");   
+  rHeart = loadImage("pinkHeartv2_2.png");  
   redHeart = loadImage("Heart_10.png");
   pinkHeart = loadImage("Heart_09.png");
 }
@@ -113,6 +113,7 @@ void draw() {
     p1HalfHeart.MoveTowardTheCenter();
     p1HalfHeart.heartGetsBigger();
     text.changeTextOfScreenRight();
+    playerBackground.increaseLoveColorP1();
     
   }
   // Check if the ball has gone off the Left side of the screen
@@ -125,6 +126,7 @@ void draw() {
     p2HalfHeart.heartGetsBigger();
    
     text.changeTextOfScreenLeft();
+    playerBackground.increaseLoveColorP2();
   }
   
   //if  (p1HalfHeart.heartBiggerThenScreen)(){}

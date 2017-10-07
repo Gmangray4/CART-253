@@ -62,7 +62,7 @@ class Text {
     fill(255);
     textMode(CENTER);
     text(loverP1Text[textNumberForP1], 50, 570);
-    fill(0);
+    fill(255);
     text(loverP2Text[textNumberForP2], 700, 570);
   }
   
