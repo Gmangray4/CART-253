@@ -3,8 +3,11 @@ class EndGame {
   String[] TheAwkwardLoverText = new String[3];
   String[] WinText = new String[3];
   
-  int TheAwkwardLoverIsP1OrP2;
-
+  int TheAwkwardLoverIsP1OrP2 = 0;
+  
+  boolean stopContolsWhenGameIsOver;
+  
+  
   EndGame() {
   
   TheAwkwardLoverText[0] = "";
@@ -16,13 +19,15 @@ class EndGame {
   WinText[2] = "P1 Wins!";
   }
   
-  void Update() {
+  void update() {
     if(p1HalfHeart.Speed == 0){
       TheAwkwardLoverIsP1OrP2 = 1;
+      stopContolsWhenGameIsOver = true;
       
     }
     if(p2HalfHeart.Speed == 0){
       TheAwkwardLoverIsP1OrP2 = 2;
+      stopContolsWhenGameIsOver = true;
     }
   }
   
@@ -31,8 +36,8 @@ class EndGame {
       textSize(30);
       fill(0);
       textMode(CENTER);
-      text(TheAwkwardLoverText[TheAwkwardLoverIsP1OrP2], 514, 300);
-      text(WinText[TheAwkwardLoverIsP1OrP2], 514, 350);
+      text(TheAwkwardLoverText[TheAwkwardLoverIsP1OrP2], 414, 300);
+      text(WinText[TheAwkwardLoverIsP1OrP2], 414, 350);
   }
   }
 }

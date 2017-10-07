@@ -16,7 +16,7 @@ class Text {
     loverP1Text[5] = "Me + U = 0";
     loverP1Text[6] = "Why";
     loverP1Text[7] = "The feelings Dead";
-    loverP1Text[8] = "ss";
+    loverP1Text[8] = "Boring";
     loverP1Text[9] = "O_O";
 //if scored agasit 
     loverP1Text[10] = "Your Cute!";
@@ -38,7 +38,7 @@ class Text {
     loverP2Text[5] = "Me + U = 0";
     loverP2Text[6] = "Why";
     loverP2Text[7] = "The feelings Dead";
-    loverP2Text[8] = "ss";
+    loverP2Text[8] = "Boring";
     loverP2Text[9] = "O_O";
 // socre ags
     loverP2Text[10] = "Your Cute!";
@@ -59,9 +59,10 @@ class Text {
   void display()
   {
     textSize(30);
-    fill(0);
+    fill(255);
     textMode(CENTER);
     text(loverP1Text[textNumberForP1], 50, 570);
+    fill(0);
     text(loverP2Text[textNumberForP2], 700, 570);
   }
   

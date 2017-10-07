@@ -1,13 +1,12 @@
 class rightHeart {
  // Default values for speed and size
-  int Speed = 24;
+  int Speed = 20;
   int HEIGHT = 100;
   int WIDTH = 16;
   int size = 150;
  
   boolean firstContact;
   boolean stopForwardMovementWhenHeartIsInCenter;
-  boolean stopContolsWhenGameIsOver;
   
   //center 516
   
@@ -48,11 +47,20 @@ void update(){
 // Update position with velocity (to move the paddle)
     x += vx;
     y += vy;
-
+    
     //Stops the the Heart paddle movement when it reachs the center. 
     if(x == 516){
     stopForwardMovementWhenHeartIsInCenter = true;
     }
+
+    if(gameover.stopContolsWhenGameIsOver == true)
+    {
+      x = 516;
+      y = 350;
+      vx = 0;
+      vy = 0;
+    }
+
 
     // Constrain the Hearts's y position to be in the window
     y = constrain(y,0 + HEIGHT/2,height - HEIGHT/2);
@@ -66,6 +74,8 @@ void display(){
       }
     }
   void keyPressed() {
+   if(gameover.stopContolsWhenGameIsOver == false) {
+    
     // Check if the key is our up key
     if (key == upKey) {
       // If so we want a negative y velocity
@@ -75,6 +85,7 @@ void display(){
       // If so we want a positive y velocity
       vy = Speed;
     }
+  }
   }
 
   // keyReleased()

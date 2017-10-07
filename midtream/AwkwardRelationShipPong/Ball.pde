@@ -56,7 +56,15 @@ class Ball {
       // If it is, then make it "bounce" by reversing its velocity
       vy = -vy;
     }
-  }
+    
+    if(gameover.stopContolsWhenGameIsOver == true) {
+    vx = 0;
+    vy = 0; 
+    x = 100;
+    y = 8000;
+  }  
+}
+  
 
   // reset()
   //
@@ -180,9 +188,8 @@ class Ball {
 
   void display() {
     // Set up the appearance of the ball (no stroke, a fill, and rectMode as CENTER)
-
     imageMode(CENTER);
     image(pinkHeart, x, y);
     pinkHeart.resize(SIZE, SIZE);
   }
-}
+  }

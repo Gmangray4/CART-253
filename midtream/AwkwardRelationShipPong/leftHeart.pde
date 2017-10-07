@@ -1,6 +1,6 @@
 class leftHeart {
  // Default values for speed and size
-  int Speed = 24;
+  int Speed = 20;
   int HEIGHT = 100;
   int WIDTH = 16;
   int size = 150;
@@ -52,7 +52,14 @@ void update(){
     if(x == 508){
     stopForwardMovementWhenHeartIsInCenter = true;
     }
-
+    
+    if(gameover.stopContolsWhenGameIsOver == true)
+    {
+      x = 508;
+      y = 350;
+      vx = 0;
+      vy = 0;
+    }
     // Constrain the paddle's y position to be in the window
     y = constrain(y,0 + HEIGHT/2,height - HEIGHT/2);
 }
@@ -65,7 +72,9 @@ void display(){
       }
     }
   void keyPressed() {
-    // Check if the key is our up key
+    if(gameover.stopContolsWhenGameIsOver == false) {
+      
+      // Check if the key is our up key
     if (key == upKey) {
       // If so we want a negative y velocity
       vy = -Speed;
@@ -74,6 +83,7 @@ void display(){
       // If so we want a positive y velocity
       vy = Speed;
     }
+  }
   }
 
   // keyReleased()

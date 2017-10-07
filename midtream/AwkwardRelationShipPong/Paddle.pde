@@ -77,6 +77,8 @@ class Paddle {
   // Called when keyPressed is called in the main program
   
   void keyPressed() {
+    
+    if(gameover.stopContolsWhenGameIsOver == false) {
     // Check if the key is our up key
     if (key == upKey) {
       // If so we want a negative y velocity
@@ -86,6 +88,7 @@ class Paddle {
       // If so we want a positive y velocity
       vy = SPEED;
     }
+  }
   }
 
   // keyReleased()

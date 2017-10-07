@@ -22,6 +22,7 @@ leftHeart p1HalfHeart;
 rightHeart p2HalfHeart;
 Text text;
 EndGame gameover;
+Background playerBackground;
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
@@ -44,6 +45,7 @@ void setup() {
   size(1024, 600);
   frameRate(30);
 
+  playerBackground = new Background();
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y
   // Also pass through the two keys used to control 'up' and 'down' respectively
@@ -77,12 +79,14 @@ void setup() {
 void draw() {
   // Fill the background each frame so we have animation
   background(backgroundColor);
+  playerBackground.display();
   // Update the paddles and ball by calling their update methods
   leftPaddle.update();
   rightPaddle.update();
   ball.update();
   p1HalfHeart.update();
   p2HalfHeart.update();
+  gameover.update();
   
   // Check if the ball has collided with either paddle
   ball.collide(leftPaddle);
@@ -91,7 +95,7 @@ void draw() {
   ball.collide(p2HalfHeart);
   
   
-  println(text.textNumberForP1);
+  println(gameover.TheAwkwardLoverIsP1OrP2);
 
   // Check if the ball has gone off the right side of the screen
   //if (ball.isOffScreen()) {
@@ -134,6 +138,7 @@ void draw() {
   ball.display();
   score.display();
   text.display();
+  gameover.display();
 }
 
 // keyPressed()
