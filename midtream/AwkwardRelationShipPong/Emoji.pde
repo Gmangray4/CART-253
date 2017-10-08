@@ -40,9 +40,4 @@ class Emoji{
     PlayerEmoji[3].resize(size,size);
     PlayerEmoji[4].resize(size,size);
   }
-  
-  
-  //imageMode(CENTER);
-    //image(pinkHeart, x, y);
-    //pinkHeart.resize(SIZE, SIZE);
 }

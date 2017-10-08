@@ -21,8 +21,9 @@
 //  And special thanks to thoses who gave suggestions for the  
 //  awkward pickup lines and turn downs.
 
-//  Ching Su for "Hey Sugar Pie"
-//  Kim Webb for "You're the meme of my dreams"
+//  Ching Su for "Hey Sugar Pie."
+//  Kim Webb for "You're the meme of my dreams."
+//  Vicky Bolduc-Brazeau "U a Keyboard cause Ur my Type."
 //____________________________________________________________________________________
 
 // Global variables for the paddles and the ball

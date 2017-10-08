@@ -1,7 +1,7 @@
 class Text {
 
-  String[] loverP1Text = new String[21];        //this is player's 1 awckawrd love text when they score a ponit. 
-  String[] loverP2Text = new String[21];        //player's 2 awckawrd love text when they score a ponit.
+  String[] loverP1Text = new String[23];        //this is player's 1 awckawrd love text when they score a ponit. 
+  String[] loverP2Text = new String[23];        //player's 2 awckawrd love text when they score a ponit.
   
   int textNumberForP1;
   int textNumberForP2;
@@ -29,7 +29,9 @@ class Text {
     loverP1Text[17] = "Come Here Often?";
     loverP1Text[18] = "Hey Sugar Pie";
     loverP1Text[19] = "You're the meme of my dreams";
-    loverP1Text[20] = ":D";
+    loverP1Text[20] = "U a Keyboard cause Ur my Type.";
+    loverP1Text[21] = "If u were a Booger I would pick u.";
+    loverP1Text[22] = ":D";
 
     loverP2Text[0] = "...";
     loverP2Text[1] = "Nope!";
@@ -51,8 +53,10 @@ class Text {
     loverP2Text[16] = "ahh Hugs?";
     loverP2Text[17] = "Come Here Often?";
     loverP2Text[18] = "Hey Sugar Pie";
-    loverP2Text[19] = "You're the meme of my dreams";
-    loverP2Text[20] = ":D";
+    loverP2Text[19] = "You're the meme of my dreams.";
+    loverP2Text[20] = "U a Keyboard cause Ur my Type.";
+    loverP2Text[21] = "If u were a Booger I would pick u.";
+    loverP2Text[22] = ":D";
     
     textNumberForP1 = 0;
     textNumberForP2 = 0;
@@ -62,21 +66,21 @@ class Text {
   {
     textSize(30);
     fill(255);
-    text(loverP1Text[textNumberForP1], 50, 570);
+    text(loverP1Text[textNumberForP1], 20, 570);
     fill(255);
-    text(loverP2Text[textNumberForP2], 560, 570);
+    text(loverP2Text[textNumberForP2], 535, 570);
   }
   
   void changeTextOfScreenRight(){
   
-    textNumberForP1 = floor(random(10,20));
+    textNumberForP1 = floor(random(10,22));
     textNumberForP2 = floor(random(0,9));
 
   }
   void changeTextOfScreenLeft(){
   
     textNumberForP1 = floor(random(0,9));
-    textNumberForP2 = floor(random(10,20));
+    textNumberForP2 = floor(random(10,22));
 
   } 
 }
