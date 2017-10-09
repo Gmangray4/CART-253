@@ -55,6 +55,9 @@ PImage rHeart;
 PImage pinkHeart;
 PImage[] PlayerEmoji = new PImage[5];
 
+import processing.sound.*;
+SoundFile BonceSound;
+
 // setup()
 //
 // Sets the size and creates the paddles and ball
@@ -63,6 +66,7 @@ void setup() {
   // Set the size
   size(1024, 600);
   frameRate(30);
+  BonceSound = new SoundFile(this, "BallBounce.wav");
 
   // Load a soundfile from the /data folder of the sketch and play it back
   
@@ -82,7 +86,6 @@ void setup() {
   p1HalfHeart = new leftHeart(PADDLE_INSET, height/2,'w', 's');
   p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, 'i', 'k');
   text = new Text();
-  
   emoji = new Emoji();
   gameover = new EndGame();
   
