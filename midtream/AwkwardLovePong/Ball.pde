@@ -57,15 +57,15 @@ class Ball {
       // If it is, then make it "bounce" by reversing its velocity
       vy = -vy;
     }
-    
-    if(gameover.stopContolsWhenGameIsOver == true) {
-    vx = 0;
-    vy = 0; 
-    x = 100;
-    y = 8000;
-  }  
-}
-  
+
+    if (gameover.stopContolsWhenGameIsOver == true) {
+      vx = 0;
+      vy = 0; 
+      x = 100;
+      y = 8000;
+    }
+  }
+
 
   // reset()
   //
@@ -78,15 +78,11 @@ class Ball {
   }
 
   // isOffScreen()
-  //
   // Returns true if the ball is off the left or right side of the window
   // otherwise false
   // (If we wanted to return WHICH side it had gone off, we'd have to return
   // something like an int (e.g. 0 = not off, 1 = off left, 2 = off right)
   // or a String (e.g. "ON SCREEN", "OFF LEFT", "OFF RIGHT")
-
-  //boolean isOffScreen() {
-  //return (x + SIZE/2 < 0 || x - SIZE/2 > width);
 
   boolean isOffScreenRight() {
     return (x + SIZE/2 < 0);
@@ -126,43 +122,48 @@ class Ball {
     }
   }
 
+  // collide with Heart Paddles
+  // These function do the folloing
+
+  // Begins collision for the half heart on the right side
   void beginCollisionForRightHeart() {
     startCollisionForRightHeart = true;
   }
-  
+  // Begins collision for the half heart on the right left
   void beginCollisionForLeftHeart() {
     startCollisionForLeftHeart = true;
   }
-  
-  void collide(leftHeart p1HalfHeart) {
-    startCollisionForLeftHeart = true; 
+  // If ball collides with half heart on the left side when Collison becomes active.
+  void collide(leftHeart p1HalfHeart) { 
     {
+      //Same code as the collision with the paddles.
       if (startCollisionForLeftHeart== true) { 
-      boolean insideLeft = (x + SIZE/2 > p1HalfHeart.x - p1HalfHeart.WIDTH/2);
-      boolean insideRight = (x - SIZE/2 < p1HalfHeart.x + p1HalfHeart.WIDTH/2);
-      boolean insideTop = (y + SIZE/2 > p1HalfHeart.y - p1HalfHeart.HEIGHT/2);
-      boolean insideBottom = (y - SIZE/2 < p1HalfHeart.y + p1HalfHeart.HEIGHT/2);
+        boolean insideLeft = (x + SIZE/2 > p1HalfHeart.x - p1HalfHeart.WIDTH/2);
+        boolean insideRight = (x - SIZE/2 < p1HalfHeart.x + p1HalfHeart.WIDTH/2);
+        boolean insideTop = (y + SIZE/2 > p1HalfHeart.y - p1HalfHeart.HEIGHT/2);
+        boolean insideBottom = (y - SIZE/2 < p1HalfHeart.y + p1HalfHeart.HEIGHT/2);
 
-      // Check if the ball overlaps with the paddle
-      if (insideLeft && insideRight && insideTop && insideBottom) {
-        // If it was moving to the left
-        if (vx < 0) {
-          // Reset its position to align with the right side of the paddle
-          x = p1HalfHeart.x + p1HalfHeart.WIDTH/2 + SIZE/2;
-          BonceSound.play();
-        } else if (vx > 0) {
-          // Reset its position to align with the left side of the paddle
-          x = p1HalfHeart.x - p1HalfHeart.WIDTH/2 - SIZE/2;
-          BonceSound.play();
+        // Check if the ball overlaps with the left heart paddle
+        if (insideLeft && insideRight && insideTop && insideBottom) {
+          // If it was moving to the left
+          if (vx < 0) {
+            // Reset its position to align with the right side of theleft heart paddle
+            x = p1HalfHeart.x + p1HalfHeart.WIDTH/2 + SIZE/2;
+            BonceSound.play();
+          } else if (vx > 0) {
+            // Reset its position to align with the left side of the left heart paddle
+            x = p1HalfHeart.x - p1HalfHeart.WIDTH/2 - SIZE/2;
+            BonceSound.play();
+          }
+          // And make it bounce
+          vx = -vx;
         }
-        // And make it bounce
-        vx = -vx;
       }
     }
   }
- }
+
   void collide(rightHeart p2HalfHeart) {
-    // Calculate possible overlaps with the paddle side by side
+    // Calculate possible overlaps with the right heart paddle side by side
 
     if (startCollisionForRightHeart == true) {
 
@@ -171,15 +172,15 @@ class Ball {
       boolean insideTop = (y + SIZE/2 > p2HalfHeart.y - p2HalfHeart.HEIGHT/2);
       boolean insideBottom = (y - SIZE/2 < p2HalfHeart.y + p2HalfHeart.HEIGHT/2);
 
-      // Check if the ball overlaps with the paddle
+      // // Check if the ball overlaps with the right heart paddle
       if (insideLeft && insideRight && insideTop && insideBottom) {
         // If it was moving to the left
         if (vx < 0) {
-          // Reset its position to align with the right side of the paddle
+          // Reset its position to align with the right side of the right heart paddle
           x = p2HalfHeart.x + p2HalfHeart.WIDTH/2 + SIZE/2;
           BonceSound.play();
         } else if (vx > 0) {
-          // Reset its position to align with the left side of the paddle
+          // Reset its position to align with the left side of the right heart paddle
           x = p2HalfHeart.x - p2HalfHeart.WIDTH/2 - SIZE/2;
           BonceSound.play();
         }
@@ -187,16 +188,15 @@ class Ball {
         vx = -vx;
       }
     }
-
   }
   // display()
   //
   // Draw the ball at its position
 
   void display() {
-    // Set up the appearance of the ball (no stroke, a fill, and rectMode as CENTER)
+    // Set up the appearance of the ball as a Pink Heart png.
     imageMode(CENTER);
     image(pinkHeart, x, y);
     pinkHeart.resize(SIZE, SIZE);
   }
-  }
+}

@@ -11,19 +11,20 @@
 // 6) click install at the bottom right. 
 // 7) After install is done reset your processing program.
 //____________________________________________________________________________________
-              // Instructions //
-                      
+// Instructions //
+
 // Goal: Scroe as many Hearts into your oppents side of the screen to have their ackward love level increase. 
 // Your Ackward love level is represented in two ways:  1) the level of redness on your side of the screen.
 //                                                      2) the size of the half heart that appears on your side.
 // The player who's Screen becomes completely Red becomes the Ackward lover and loses the game. 
 
-              // Contorls//
+// Contorls//
 // Player 1                 Player 2
 // Move paddle up   = w     Move paddle up   = i    
 // Move paddle down = s     Move paddle down = k
 
-//Credits
+// Credits
+
 // Thansk to Piskelapp.com as my Tool for creating this projects Pngs
 // This webiste is free open souce wesite where you can qucikly and easlity creaie your own sprites. 
 // Link (https://www.piskelapp.com/) 
@@ -80,18 +81,18 @@ void setup() {
   // Set the size
   size(1024, 600);
   frameRate(30);
-  
+
   //Loads Sound files
   BonceSound = new SoundFile(this, "BallBounce.wav");
   OffScreenSound = new SoundFile(this, "OffScreen.wav");
   Bgm = new SoundFile(this, "music.wav"); 
-  
+
   //Play Backgorund Theme. 
   Bgm.play();
   Bgm.amp(0.5);
 
   // Load a soundfile from the /data folder of the sketch and play it back
-  
+
   playerBackground = new Background();
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y
@@ -100,20 +101,19 @@ void setup() {
   // different accented characters in text editors (so avoid those if you're changing this)
   leftPaddle = new Paddle(PADDLE_INSET, height/2, 'w', 's');
   rightPaddle = new Paddle(width - PADDLE_INSET, height/2, 'i', 'k');
- 
+
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
-  
+
   //This is the set up for my Heart paddles class and controls. 
-  p1HalfHeart = new leftHeart(PADDLE_INSET, height/2,'w', 's');
+  p1HalfHeart = new leftHeart(PADDLE_INSET, height/2, 'w', 's');
   p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, 'i', 'k');
   text = new Text();
   emoji = new Emoji();
   gameover = new EndGame();
-  
-  
+
+
   // Loads the png images into processing
- 
 }
 
 // draw()
@@ -131,22 +131,22 @@ void draw() {
   p1HalfHeart.update();
   p2HalfHeart.update();
   gameover.update();
-  
-  
+
+
   // Check if the ball has collided with either paddle
   ball.collide(leftPaddle);
   ball.collide(rightPaddle);
   ball.collide(p1HalfHeart);
   ball.collide(p2HalfHeart);
- 
- println(Bgm);
+
+  println(Bgm);
 
   // Check if the ball has gone off the right side of the screen
   //if (ball.isOffScreen()) {
-    // If it has, reset the ball
-   // ball.reset();  
- 
-  if (ball.isOffScreenRight()){
+  // If it has, reset the ball
+  // ball.reset();  
+
+  if (ball.isOffScreenRight()) {
     OffScreenSound.play();
     emoji.EmojiIfOfScreenRight();
     ball.reset();
@@ -159,10 +159,9 @@ void draw() {
     p1HalfHeart.heartGetsBigger();
     text.changeTextOfScreenRight();
     playerBackground.increaseLoveColorP1();
-    
   }
   // Check if the ball has gone off the Left side of the screen
-  if (ball.isOffScreenLeft()){
+  if (ball.isOffScreenLeft()) {
     OffScreenSound.play();
     emoji.EmojiIfOfScreenLeft();
     ball.reset();
@@ -173,17 +172,17 @@ void draw() {
     text.changeTextOfScreenLeft();
     playerBackground.increaseLoveColorP2();
   }
-  
+   
   //if  (p1HalfHeart.heartBiggerThenScreen)(){}
 
-  // Display the paddles and the ball
-  
+  // Displays as named
+
   emoji.display();
   leftPaddle.display();
   rightPaddle.display();
+  ball.display();
   p1HalfHeart.display(); 
   p2HalfHeart.display();
-  ball.display();
   text.display();
   gameover.display();
 }

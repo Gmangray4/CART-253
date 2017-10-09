@@ -2,7 +2,7 @@ class Text {
 
   String[] loverP1Text = new String[23];        //this is player's 1 awckawrd love text when they score a ponit. 
   String[] loverP2Text = new String[23];        //player's 2 awckawrd love text when they score a ponit.
-  
+
   int textNumberForP1;
   int textNumberForP2;
   ;
@@ -18,7 +18,7 @@ class Text {
     loverP1Text[7] = "The feelings Dead.";
     loverP1Text[8] = "Boring.";
     loverP1Text[9] = "O_O";
-//if scored agasit 
+    //if scored agasit 
     loverP1Text[10] = "Your Cute!";
     loverP1Text[11] = "I'm Single!";
     loverP1Text[12] = "Kiss Me!";
@@ -43,7 +43,7 @@ class Text {
     loverP2Text[7] = "The feelings Dead.";
     loverP2Text[8] = "Boring.";
     loverP2Text[9] = "O_O";
-// socre ags
+    // socre ags
     loverP2Text[10] = "Your Cute!";
     loverP2Text[11] = "I'm Single!";
     loverP2Text[12] = "Kiss Me!";
@@ -57,11 +57,11 @@ class Text {
     loverP2Text[20] = "U a Keyboard cause Ur my Type.";
     loverP2Text[21] = "If u were a Booger I would pick u.";
     loverP2Text[22] = ":D";
-    
+
     textNumberForP1 = 0;
     textNumberForP2 = 0;
   }
-   
+
   void display()
   {
     textSize(30);
@@ -70,17 +70,15 @@ class Text {
     fill(255);
     text(loverP2Text[textNumberForP2], 535, 570);
   }
-  
-  void changeTextOfScreenRight(){
-  
-    textNumberForP1 = floor(random(10,22));
-    textNumberForP2 = floor(random(0,9));
 
+  void changeTextOfScreenRight() {
+
+    textNumberForP1 = floor(random(10, 22));
+    textNumberForP2 = floor(random(0, 9));
   }
-  void changeTextOfScreenLeft(){
-  
-    textNumberForP1 = floor(random(0,9));
-    textNumberForP2 = floor(random(10,22));
+  void changeTextOfScreenLeft() {
 
-  } 
+    textNumberForP1 = floor(random(0, 9));
+    textNumberForP2 = floor(random(10, 22));
+  }
 }
