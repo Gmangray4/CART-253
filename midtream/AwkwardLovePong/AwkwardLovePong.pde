@@ -1,8 +1,6 @@
 // Awkward Relationship Pong!
 // By Gordon Roland Gray
 
-//90.24 secs
-
 //Big Note This Game plays sound files which to run requres you to update your processing Library!
 // it is very easy to do so here are the steps.
 // 1) Go to Sketch
@@ -74,6 +72,7 @@ import processing.sound.*;
 SoundFile BonceSound;
 SoundFile Bgm;
 SoundFile OffScreenSound;
+SoundFile gameOverTheme;
 
 // setup()
 //
@@ -88,6 +87,7 @@ void setup() {
   BonceSound = new SoundFile(this, "BallBounce.wav");
   OffScreenSound = new SoundFile(this, "OffScreen.wav");
   Bgm = new SoundFile(this, "music.wav"); 
+  gameOverTheme = new SoundFile(this, "GameOver.wav"); 
 
   //Play Backgorund Theme. 
   Bgm.play();

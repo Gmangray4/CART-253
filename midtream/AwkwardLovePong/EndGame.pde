@@ -4,9 +4,8 @@ class EndGame {
   String[] WinText = new String[3];
 
   int TheAwkwardLoverIsP1OrP2 = 0;
-
   boolean stopContolsWhenGameIsOver;
-
+ 
 
   EndGame() {
 
@@ -17,6 +16,8 @@ class EndGame {
     WinText[0] = "";
     WinText[1] = "P2 Wins!";
     WinText[2] = "P1 Wins!";
+    
+ 
   }
 
   void update() {
@@ -24,6 +25,8 @@ class EndGame {
       TheAwkwardLoverIsP1OrP2 = 1;
       stopContolsWhenGameIsOver = true;
       emoji.player2WinEmoji();
+
+      
     }
     if (p2HalfHeart.Speed == 0) {
       TheAwkwardLoverIsP1OrP2 = 2;
