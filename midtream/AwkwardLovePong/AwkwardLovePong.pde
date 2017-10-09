@@ -1,5 +1,15 @@
 // Awkward Relationship Pong!
 // By Gordon Roland Gray
+
+//Big Note This Game plays sound files which to run requres you to update your processing Library!
+// it is very easy to do so here are the steps.
+// 1) Go to Sketch
+// 2) Import Library...
+// 3) Add Library...
+// 4) Type in the Search bar "Sound".
+// 5) Select "Sound | Sound Library based on MethClas for Processing..." By "The Processing Foundation."
+// 6) click install at the bottom right. 
+// 7) After install is done reset your processing program.
 //____________________________________________________________________________________
               // Instructions //
                       
@@ -55,8 +65,12 @@ PImage rHeart;
 PImage pinkHeart;
 PImage[] PlayerEmoji = new PImage[5];
 
+
+//Sets up SoundFiles
 import processing.sound.*;
 SoundFile BonceSound;
+SoundFile Bgm;
+SoundFile OffScreenSound;
 
 // setup()
 //
@@ -66,7 +80,15 @@ void setup() {
   // Set the size
   size(1024, 600);
   frameRate(30);
+  
+  //Loads Sound files
   BonceSound = new SoundFile(this, "BallBounce.wav");
+  OffScreenSound = new SoundFile(this, "OffScreen.wav");
+  Bgm = new SoundFile(this, "music.wav"); 
+  
+  //Play Backgorund Theme. 
+  Bgm.play();
+  Bgm.amp(0.5);
 
   // Load a soundfile from the /data folder of the sketch and play it back
   
@@ -110,12 +132,14 @@ void draw() {
   p2HalfHeart.update();
   gameover.update();
   
+  
   // Check if the ball has collided with either paddle
   ball.collide(leftPaddle);
   ball.collide(rightPaddle);
   ball.collide(p1HalfHeart);
   ball.collide(p2HalfHeart);
  
+ println(Bgm);
 
   // Check if the ball has gone off the right side of the screen
   //if (ball.isOffScreen()) {
@@ -123,6 +147,7 @@ void draw() {
    // ball.reset();  
  
   if (ball.isOffScreenRight()){
+    OffScreenSound.play();
     emoji.EmojiIfOfScreenRight();
     ball.reset();
     //Makes the half haert for p1 appear
@@ -138,13 +163,13 @@ void draw() {
   }
   // Check if the ball has gone off the Left side of the screen
   if (ball.isOffScreenLeft()){
+    OffScreenSound.play();
     emoji.EmojiIfOfScreenLeft();
     ball.reset();
     p2HalfHeart.appear();
     ball.beginCollisionForRightHeart();
     p2HalfHeart.MoveTowardTheCenter();
     p2HalfHeart.heartGetsBigger();
-   
     text.changeTextOfScreenLeft();
     playerBackground.increaseLoveColorP2();
   }
