@@ -1,6 +1,8 @@
 // Awkward Relationship Pong!
 // By Gordon Roland Gray
 
+//90.24 secs
+
 //Big Note This Game plays sound files which to run requres you to update your processing Library!
 // it is very easy to do so here are the steps.
 // 1) Go to Sketch
@@ -52,13 +54,13 @@ Text text;
 EndGame gameover;
 Background playerBackground;
 Emoji emoji;
+SoundTimer soundTimer;
 
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
-// The background colour during play (black)
-
+float BgmTimer;
 
 // Images for my Hearts
 PImage lHeart;
@@ -90,6 +92,7 @@ void setup() {
   //Play Backgorund Theme. 
   Bgm.play();
   Bgm.amp(0.5);
+  BgmTimer = Bgm.duration();
 
   // Load a soundfile from the /data folder of the sketch and play it back
 
@@ -111,6 +114,7 @@ void setup() {
   text = new Text();
   emoji = new Emoji();
   gameover = new EndGame();
+  soundTimer = new SoundTimer();
 
 
   // Loads the png images into processing
@@ -131,15 +135,16 @@ void draw() {
   p1HalfHeart.update();
   p2HalfHeart.update();
   gameover.update();
+  soundTimer.update();
+  
 
+  println(soundTimer.bgmTime);
 
   // Check if the ball has collided with either paddle
   ball.collide(leftPaddle);
   ball.collide(rightPaddle);
   ball.collide(p1HalfHeart);
   ball.collide(p2HalfHeart);
-
-  println(Bgm);
 
   // Check if the ball has gone off the right side of the screen
   //if (ball.isOffScreen()) {
