@@ -1,8 +1,10 @@
 class Text {
-
-  String[] loverP1Text = new String[24];        //this is player's 1 awckawrd love text when they score a ponit. 
-  String[] loverP2Text = new String[24];        //player's 2 awckawrd love text when they score a ponit.
-
+  
+  //this is player's 1 awckawrd love text when they score a ponit. 
+  String[] loverP1Text = new String[24]; 
+  //player's 2 awckawrd love text when they score a ponit.
+  String[] loverP2Text = new String[24];        
+ 
   int textNumberForP1;
   int textNumberForP2;
   ;

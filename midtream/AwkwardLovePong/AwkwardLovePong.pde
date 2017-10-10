@@ -1,9 +1,9 @@
 // Awkward Relationship Pong!
 // By Gordon Roland Gray
 
-// Big Note This Game plays sound files which to run requres you to update your processing Library!
+// Note This Game plays sound files which to run requres you to update your processing Library!
 // it is very easy to do so here are the steps.
-// 1) Go to Sketch
+// 1) Go to Sketch at the top of your screen
 // 2) Import Library...
 // 3) Add Library...
 // 4) Type in the Search bar "Sound".
@@ -11,7 +11,7 @@
 // 6) click install at the bottom right. 
 // 7) After install is done reset your processing program.
 //____________________________________________________________________________________
-// Instructions //
+//////////////////////// Instructions ////////////////////////
 
 // Goal: Scroe as many Hearts into your oppents side of the screen to have their ackward love level increase. 
 // Your Ackward love level is represented in two ways:  1) the level of redness on your side of the screen.
@@ -58,6 +58,9 @@ SoundTimer soundTimer;
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
+int ScoreP1;
+int ScoreP2;
+// Timer?????????????
 float BgmTimer;
 
 // Images for my Hearts
@@ -81,7 +84,15 @@ SoundFile gameOverTheme;
 void setup() {
   // Set the size
   size(1024, 600);
+  // Set the size the frameRate
   frameRate(30);
+  
+  //This is to check the score in ParintLin if need be.
+  //the Score system works by checking the speed of the 2 half heart paddles 
+  //and if one equal 0 then the game is over. 
+  
+  ScoreP1 = p1HalfHeart.Speed;
+  ScoreP2 = p2HalfHeart.Speed;
 
   //Loads Sound files
   BonceSound = new SoundFile(this, "BallBounce.wav");
@@ -115,8 +126,6 @@ void setup() {
   emoji = new Emoji();
   gameover = new EndGame();
   soundTimer = new SoundTimer();
-
-
   // Loads the png images into processing
 }
 
@@ -132,9 +141,11 @@ void draw() {
   leftPaddle.update();
   rightPaddle.update();
   ball.update();
+  // Update the leftHeart and rightHeart by calling their update methods
   p1HalfHeart.update();
   p2HalfHeart.update();
   gameover.update();
+  //Updates sound
   soundTimer.update();
   
 

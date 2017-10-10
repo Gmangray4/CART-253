@@ -70,7 +70,6 @@ class leftHeart {
     // Constrain the paddle's y position to be in the window
     y = constrain(y, 0 + HEIGHT/2, height - HEIGHT/2);
   }
-
   void display() {
     // Draws the leftHeart and resizes it. 
     if (firstContact == true) {
