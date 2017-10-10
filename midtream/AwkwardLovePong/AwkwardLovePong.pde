@@ -1,6 +1,6 @@
 // Awkward Relationship Pong!
 // By Gordon Roland Gray
-
+//____________________________________________________________________________________
 // Note This Game plays sound files which to run requres you to update your processing Library!
 // it is very easy to do so here are the steps.
 // 1) Go to Sketch at the top of your screen
@@ -16,6 +16,7 @@
 // Goal: Scroe as many Hearts into your oppents side of the screen to have their ackward love level increase. 
 // Your Ackward love level is represented in two ways:  1) the level of redness on your side of the screen.
 //                                                      2) the size of the half heart that appears on your side.
+
 // The player who's Screen becomes completely Red becomes the Ackward lover and loses the game. 
 
 // Contorls//
@@ -158,7 +159,7 @@ void draw() {
   ball.collide(p2HalfHeart);
 
   // Check if the ball has gone off the right side of the screen
-  //if (ball.isOffScreen()) {
+  // if (ball.isOffScreen()) {
   // If it has, reset the ball
   // ball.reset();  
 
@@ -191,7 +192,7 @@ void draw() {
    
   //if  (p1HalfHeart.heartBiggerThenScreen)(){}
 
-  // Displays as named
+  // Displays as titled
 
   emoji.display();
   leftPaddle.display();
