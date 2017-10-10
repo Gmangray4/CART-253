@@ -1,7 +1,7 @@
 // Awkward Relationship Pong!
 // By Gordon Roland Gray
 
-//Big Note This Game plays sound files which to run requres you to update your processing Library!
+// Big Note This Game plays sound files which to run requres you to update your processing Library!
 // it is very easy to do so here are the steps.
 // 1) Go to Sketch
 // 2) Import Library...
