@@ -4,8 +4,10 @@ class rightHeart {
   int HEIGHT = 100;
   int WIDTH = 16;
   int size = 150;
-
+  
+  // This is used to make the rightHeart appear when set ture + allow collision.
   boolean firstContact;
+  // this is to tell the rightHeartv to stop moving futher right when it reaches the center. 
   boolean stopForwardMovementWhenHeartIsInCenter;
 
   //center 516
@@ -86,22 +88,6 @@ class rightHeart {
         // If so we want a positive y velocity
         vy = Speed;
       }
-    }
-  }
-
-  // keyReleased()
-  //
-  // Called when keyReleased is called in the main program
-
-  void keyReleased() {
-    // Check if the key is our up key and the paddle is moving up
-    if (key == upKey && vy < 0) {
-      // If so it should stop
-      vy = 0;
-    } // Otherwise check if the key is our down key and paddle is moving down 
-    else if (key == downKey && vy > 0) {
-      // If so it should stop
-      vy = 0;
     }
   }
 }

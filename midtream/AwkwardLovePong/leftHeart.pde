@@ -5,16 +5,18 @@ class leftHeart {
   int WIDTH = 16;
   int size = 150;
 
+  // This is used to make the leftHeart appear when set ture + allow collision.
   boolean firstContact;
+  // this is to tell the leftHeartt to stop moving futher right when it reaches the center. 
   boolean stopForwardMovementWhenHeartIsInCenter;
 
-  // The position and velocity of the paddle (note that vx isn't really used right now)
+  // The position and velocity of the leftHeartt (note that vx isn't really used right now)
   int x;
   int y;
   int vx;
   int vy;
 
-  // The characters used to make the paddle move up and down, defined in constructor
+  // The characters used to make the leftHeartt move up and down, defined in constructor
   char upKey;
   char downKey;
 
@@ -24,13 +26,14 @@ class leftHeart {
     y = _y;
     upKey = _upKey;
     downKey = _downKey;
-
+    // loads the png for the leftHeartt in the program.  
     lHeart = loadImage("pinkHeartv2_3.png");
   }
 
 
-  //Makes the heart appear
+  
   void appear() {
+    //Makes the heart appear and starts Conlssion
     firstContact = true;
   }
   //This moves the heart closer to the center
@@ -41,7 +44,7 @@ class leftHeart {
       x += 0;
     }
   }
-  //This increase the left hearts size
+  //This increase the lefthearts size
   void heartGetsBigger() {
     size += 25;
     Speed -= 1;
@@ -52,10 +55,11 @@ class leftHeart {
     x += vx;
     y += vy;
 
+    // stops the leftHeart when it reaches the center x axis.
     if (x == 508) {
       stopForwardMovementWhenHeartIsInCenter = true;
     }
-
+    // places the leftHeart when in the center when the game is over.
     if (gameover.stopContolsWhenGameIsOver == true)
     {
       x = 508;
@@ -68,6 +72,7 @@ class leftHeart {
   }
 
   void display() {
+    // Draws the leftHeart and resizes it. 
     if (firstContact == true) {
       imageMode(CENTER);
       image(lHeart, x, y);
@@ -76,7 +81,6 @@ class leftHeart {
   }
   void keyPressed() {
     if (gameover.stopContolsWhenGameIsOver == false) {
-
       // Check if the key is our up key
       if (key == upKey) {
         // If so we want a negative y velocity
@@ -86,22 +90,6 @@ class leftHeart {
         // If so we want a positive y velocity
         vy = Speed;
       }
-    }
-  }
-
-  // keyReleased()
-  //
-  // Called when keyReleased is called in the main program
-
-  void keyReleased() {
-    // Check if the key is our up key and the paddle is moving up
-    if (key == upKey && vy < 0) {
-      // If so it should stop
-      vy = 0;
-    } // Otherwise check if the key is our down key and paddle is moving down 
-    else if (key == downKey && vy > 0) {
-      // If so it should stop
-      vy = 0;
     }
   }
 }
