@@ -40,7 +40,7 @@ class rightHeart {
     }
   }
   void heartGetsBigger() {
-    size += 50;
+    size += 25;
     Speed -= 1;
   }
 

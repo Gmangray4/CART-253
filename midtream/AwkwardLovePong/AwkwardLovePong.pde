@@ -138,7 +138,7 @@ void draw() {
   soundTimer.update();
   
 
-  println(soundTimer.bgmTime);
+ 
 
   // Check if the ball has collided with either paddle
   ball.collide(leftPaddle);
