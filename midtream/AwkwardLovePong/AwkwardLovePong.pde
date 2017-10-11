@@ -62,6 +62,7 @@ int PADDLE_INSET = 8;
 int ScoreP1;
 int ScoreP2;
 
+//this is the controls for player 1 and 2
 char Up1 = 'q';
 char Down1 ='a';
 char Up2 = 'p';
@@ -110,11 +111,13 @@ void setup() {
   //Play Backgorund Theme. 
   Bgm.play();
   Bgm.amp(0.5);
-  BgmTimer = Bgm.duration();
-
-  // Load a soundfile from the /data folder of the sketch and play it back
+  
+  // this creates the changeable player contorl skeem
   playerControls = new PlayerControls();
+  
+  //this creates the changeable background.
   playerBackground = new Background();
+  
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y
   // Also pass through the two keys used to control 'up' and 'down' respectively
@@ -129,11 +132,16 @@ void setup() {
   //This is the set up for my Heart paddles class and controls. 
   p1HalfHeart = new leftHeart(PADDLE_INSET, height/2, Up1, Down1);
   p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, Up2, Down2);
+  
+  //sets up text, Emojis a
   text = new Text();
   emoji = new Emoji();
+  
+  //this creates GameOver condiations 
   gameover = new EndGame();
+  
+  // this makes the BGM loop when done
   soundTimer = new SoundTimer();
-  // Loads the png images into processing
   
 }
 
@@ -154,12 +162,14 @@ void draw() {
   // Update the leftHeart and rightHeart by calling their update methods
   p1HalfHeart.update();
   p2HalfHeart.update();
+  // updates if the game is over.
   gameover.update();
   //Updates sound
   soundTimer.update();
+  //Updates controls
   playerControls.Update();
 
-  // Check if the ball has collided with either paddle
+  // Check if the ball has collided with either paddle or the left or right half heart paddle.
   ball.collide(leftPaddle);
   ball.collide(rightPaddle);
   ball.collide(p1HalfHeart);
@@ -171,7 +181,9 @@ void draw() {
   // ball.reset();  
 
   if (ball.isOffScreenRight()) {
+    // plays the off screen sound
     OffScreenSound.play();
+    //Changes emoji of player 2
     emoji.EmojiIfOfScreenRight();
     ball.reset();
     //Makes the half haert for p1 appear
@@ -181,19 +193,29 @@ void draw() {
     //the heart half haert moves closer to the center and gets bigger.
     p1HalfHeart.MoveTowardTheCenter();
     p1HalfHeart.heartGetsBigger();
+    //Updates the commomets when called
     text.changeTextOfScreenRight();
+    //incresses the redness of player one's background
     playerBackground.increaseLoveColorP1();
   }
   // Check if the ball has gone off the Left side of the screen
   if (ball.isOffScreenLeft()) {
+    // plays the score sound
     OffScreenSound.play();
+    //changes emoji of player 1
     emoji.EmojiIfOfScreenLeft();
     ball.reset();
+    // makes the halfHeart of player 2 appear.
     p2HalfHeart.appear();
+    //allows collision for the right half heart.
     ball.beginCollisionForRightHeart();
+    //makes the half heart move toward the center
     p2HalfHeart.MoveTowardTheCenter();
+    // makes the half heart incress size
     p2HalfHeart.heartGetsBigger();
+    //changes the text on player 1's side.
     text.changeTextOfScreenLeft();
+    //updates the redness of player 2.
     playerBackground.increaseLoveColorP2();
   }
    
@@ -219,7 +241,6 @@ void draw() {
 
 void keyPressed() {
   // Just call both paddles' own keyPressed methods
-  //playerControls.keyPressed();
   leftPaddle.keyPressed();
   rightPaddle.keyPressed();
   p1HalfHeart.keyPressed();
