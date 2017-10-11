@@ -80,7 +80,7 @@ class PlayerControls {
   
   void display(){
   textSize(100);
-    fill(255,255,255,96);
+    fill(100,100,255,96);
     text(ControlTextUp1, 250, 100);
     text(ControlTextDown1, 250, 515);
     text(ControlTextUp2, 700, 100);
