@@ -200,7 +200,7 @@ void draw() {
   //if  (p1HalfHeart.heartBiggerThenScreen)(){}
 
   // Displays as titled
-
+  playerControls.display();
   emoji.display();
   leftPaddle.display();
   rightPaddle.display();
