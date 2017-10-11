@@ -71,6 +71,8 @@ class Paddle {
     // Draw the paddle as a rectangle
     rect(x, y, WIDTH, HEIGHT);
   }
+  
+ 
 
   // keyPressed()
   //
@@ -106,4 +108,6 @@ class Paddle {
       vy = 0;
     }
   }
+  
+  
 }

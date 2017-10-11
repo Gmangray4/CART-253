@@ -37,7 +37,6 @@
 //  Kim Webb for "You're the meme of my dreams."
 //  Vicky Bolduc-Brazeau "U a Keyboard cause Ur my Type."
 //____________________________________________________________________________________
-
 // Global variables for the paddles and the ball
 Paddle leftPaddle;
 Paddle rightPaddle;
@@ -54,6 +53,7 @@ EndGame gameover;
 Background playerBackground;
 Emoji emoji;
 SoundTimer soundTimer;
+PlayerControls playerControls;
 
 
 // The distance from the edge of the window a paddle should be
@@ -61,6 +61,12 @@ int PADDLE_INSET = 8;
 
 int ScoreP1;
 int ScoreP2;
+
+char Up1 = 'q';
+char Down1 ='a';
+char Up2 = 'p';
+char Down2 = ';';
+
 // Timer?????????????
 float BgmTimer;
 
@@ -92,8 +98,8 @@ void setup() {
   //the Score system works by checking the speed of the 2 half heart paddles 
   //and if one equal 0 then the game is over. 
   
-  ScoreP1 = p1HalfHeart.Speed;
-  ScoreP2 = p2HalfHeart.Speed;
+  //ScoreP1 = p1HalfHeart.Speed;
+  //ScoreP2 = p2HalfHeart.Speed;
 
   //Loads Sound files
   BonceSound = new SoundFile(this, "BallBounce.wav");
@@ -107,27 +113,28 @@ void setup() {
   BgmTimer = Bgm.duration();
 
   // Load a soundfile from the /data folder of the sketch and play it back
-
+  playerControls = new PlayerControls();
   playerBackground = new Background();
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y
   // Also pass through the two keys used to control 'up' and 'down' respectively
   // NOTE: On a mac you can run into trouble if you use keys that create that popup of
   // different accented characters in text editors (so avoid those if you're changing this)
-  leftPaddle = new Paddle(PADDLE_INSET, height/2, 'w', 's');
-  rightPaddle = new Paddle(width - PADDLE_INSET, height/2, 'i', 'k');
-
+ 
+  leftPaddle = new Paddle(PADDLE_INSET, height/2, Up1, Down1);
+  rightPaddle = new Paddle(width - PADDLE_INSET, height/2, Up2, Down2);
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
 
   //This is the set up for my Heart paddles class and controls. 
-  p1HalfHeart = new leftHeart(PADDLE_INSET, height/2, 'w', 's');
-  p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, 'i', 'k');
+  p1HalfHeart = new leftHeart(PADDLE_INSET, height/2, Up1, Down1);
+  p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, Up2, Down2);
   text = new Text();
   emoji = new Emoji();
   gameover = new EndGame();
   soundTimer = new SoundTimer();
   // Loads the png images into processing
+  
 }
 
 // draw()
@@ -136,6 +143,8 @@ void setup() {
 // if the ball has hit a paddle, and displaying everything.
 
 void draw() {
+   
+  
   // Fill the background each frame so we have animation
   playerBackground.display();
   // Update the paddles and ball by calling their update methods
@@ -148,9 +157,7 @@ void draw() {
   gameover.update();
   //Updates sound
   soundTimer.update();
-  
-
- 
+  playerControls.Update();
 
   // Check if the ball has collided with either paddle
   ball.collide(leftPaddle);
@@ -212,6 +219,7 @@ void draw() {
 
 void keyPressed() {
   // Just call both paddles' own keyPressed methods
+  //playerControls.keyPressed();
   leftPaddle.keyPressed();
   rightPaddle.keyPressed();
   p1HalfHeart.keyPressed();

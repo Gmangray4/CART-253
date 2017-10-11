@@ -16,7 +16,7 @@ class Text {
     loverP1Text[3] = "Who are you again?";
     loverP1Text[4] = "I'm seeing someone.";
     loverP1Text[5] = "Me + U = 0";
-    loverP1Text[6] = "";
+    loverP1Text[6] = "but we just met?";
     loverP1Text[7] = "The feelings Dead.";
     loverP1Text[8] = "Chuck Norris Doesn't Approve.";
     loverP1Text[9] = "It's Never Going to Happen.";
