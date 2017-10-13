@@ -23,8 +23,8 @@
 // Player 1                 Player 2
 // Move paddle up   = q     Move paddle up   = p    
 // Move paddle down = a     Move paddle down = ;
-
-// Credits
+//------------------------------------------------------------------------------------
+//Credits
 
 // Thansk to Piskelapp.com as my Tool for creating this projects Pngs
 // This webiste is free open souce wesite where you can qucikly and easlity creaie your own sprites. 
@@ -33,17 +33,17 @@
 //  And special thanks to thoses who gave suggestions for the  
 //  awkward pickup lines and rejections.
 
-//  Ching Su for "Hey Sugar Pie."
-//  Kim Webb for "You're the meme of my dreams."
-//  Vicky Bolduc-Brazeau "U a Keyboard cause Ur my Type."
-//  Jimmy Lee (aka Lito) "it's never going to happen"
-//  Milan Solivo "U a Broom because U just swept me off of my feet"
-//               "Are u a strach cause I'd strach and snuff u"
-//               "did you faut because u blow me away."
-//  Carlo Blanco "If you were a booger I would pick you first"
-//  Erika Gutierrez "Do u live in corn fild cause im staking U" 
-//                  "Are you google cause u have everthing im searching for"
-//  
+//  Ching Su                 "Hey Sugar Pie."
+//  Kim Webb                 "You're the meme of my dreams."
+//  Vicky Bolduc-Brazeau     "U a Keyboard cause Ur my Type."
+//  Jimmy Lee (aka Lito)     "it's never going to happen"
+//  Milan Solivo             "U a Broom because U just swept me off of my feet"
+//                           "U a loto ticket? Cause I'd strach & snuff u"
+//                           "did you faut because u blow me away."
+//  Carlo Blanco             "If you were a booger I would pick u"
+//  Erika Gutierrez          "Do u live in corn fild cause im staking U" 
+//                           "Are you google cause u have everthing im searching for"
+//
 //____________________________________________________________________________________
 // Error Note!!!
 // Me and Pipper meet up at an offcie hour and we discussed my error that happens during the end of my game.
