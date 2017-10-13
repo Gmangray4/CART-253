@@ -21,8 +21,8 @@
 
 // Contorls//
 // Player 1                 Player 2
-// Move paddle up   = w     Move paddle up   = i    
-// Move paddle down = s     Move paddle down = k
+// Move paddle up   = q     Move paddle up   = p    
+// Move paddle down = a     Move paddle down = ;
 
 // Credits
 
@@ -31,12 +31,28 @@
 // Link (https://www.piskelapp.com/) 
 
 //  And special thanks to thoses who gave suggestions for the  
-//  awkward pickup lines and turn downs.
+//  awkward pickup lines and rejections.
 
 //  Ching Su for "Hey Sugar Pie."
 //  Kim Webb for "You're the meme of my dreams."
 //  Vicky Bolduc-Brazeau "U a Keyboard cause Ur my Type."
+//  Jimmy Lee (aka Lito) "it's never going to happen"
+//  Milan Solivo "U a Broom because U just swept me off of my feet"
+//               "Are u a strach cause I'd strach and snuff u"
+//               "did you faut because u blow me away."
+//  Carlo Blanco "If you were a booger I would pick you first"
+//  Erika Gutierrez "Do u live in corn fild cause im staking U" 
+//                  "Are you google cause u have everthing im searching for"
+//  
 //____________________________________________________________________________________
+// Error Note!!!
+// Me and Pipper meet up at an offcie hour and we discussed my error that happens during the end of my game.
+// The error message appears when you somtimes stop running the program. 
+// the orginal reason was becuase stop would be looping itself but I set up the code so the Error does not apeaer during the game.
+// However for some unkwon reason it appears when I stop running the program and I don't know why?
+// he told me the error that appears after closeing the program is not really my issues it's has to with an issue with the sound library.
+// ____________________________________________________________________________________
+
 // Global variables for the paddles and the ball
 Paddle leftPaddle;
 Paddle rightPaddle;
@@ -59,16 +75,13 @@ PlayerControls playerControls;
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
-int ScoreP1;
-int ScoreP2;
-
 //this is the controls for player 1 and 2
 char Up1 = 'q';
 char Down1 ='a';
 char Up2 = 'p';
 char Down2 = ';';
 
-// Timer?????????????
+// Background music Timer
 float BgmTimer;
 
 // Images for my Hearts
@@ -98,9 +111,6 @@ void setup() {
   //This is to check the score in ParintLin if need be.
   //the Score system works by checking the speed of the 2 half heart paddles 
   //and if one equal 0 then the game is over. 
-  
-  //ScoreP1 = p1HalfHeart.Speed;
-  //ScoreP2 = p2HalfHeart.Speed;
 
   //Loads Sound files
   BonceSound = new SoundFile(this, "BallBounce.wav");

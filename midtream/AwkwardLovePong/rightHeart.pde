@@ -1,3 +1,6 @@
+// rightHeart Paddle
+// player 2's half heart
+
 class rightHeart {
   // Default values for speed and size
   int Speed = 20;
@@ -27,35 +30,38 @@ class rightHeart {
     y = _y;
     upKey = _upKey;
     downKey = _downKey;
-
+  // loads the png for the leftHeartt in the program.  
     rHeart = loadImage("pinkHeartv2_2.png");
   }
 
   void appear() {
+    //Makes the heart appear and starts Conlssion
     firstContact = true;
   }
   void MoveTowardTheCenter() {
+    //This moves the heart closer to the center
     if (stopForwardMovementWhenHeartIsInCenter == false) { 
       x -= 50;
     } else {
       x += 0;
     }
   }
+  //This increase the righthearts size and drops it's speed
   void heartGetsBigger() {
     size += 25;
     Speed -= 1;
   }
 
   void update() {
-    // Update position with velocity (to move the paddle)
+    // Update position with velocity (to move the rightheart paddle)
     x += vx;
     y += vy;
 
-    //Stops the the Heart paddle movement when it reachs the center. 
+    //Stops the the right Heart paddle movement when it reachs the center. 
     if (x == 516) {
       stopForwardMovementWhenHeartIsInCenter = true;
     }
-
+    // places the rightHeart in the center when the game is over.
     if (gameover.stopContolsWhenGameIsOver == true)
     {
       x = 516;
@@ -70,6 +76,7 @@ class rightHeart {
   }
 
   void display() {
+    // Draws the leftHeart and resizes it.
     if (firstContact == true) {
       imageMode(CENTER);
       image(rHeart, x, y);
@@ -78,7 +85,6 @@ class rightHeart {
   }
   void keyPressed() {
     if (gameover.stopContolsWhenGameIsOver == false) {
-
       // Check if the key is our up key
       if (key == upKey) {
         // If so we want a negative y velocity

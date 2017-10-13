@@ -1,3 +1,6 @@
+//LeftHeart Paddle
+// player 1's half heart
+
 class leftHeart {
   // Default values for speed and size
   int Speed = 20;
@@ -44,14 +47,14 @@ class leftHeart {
       x += 0;
     }
   }
-  //This increase the lefthearts size
+  //This increase the lefthearts size and drops it's speed
   void heartGetsBigger() {
     size += 25;
     Speed -= 1;
   }
 
   void update() {
-    // Update position with velocity (to move the paddle)
+    // Update position with velocity (to move the leftheart paddle)
     x += vx;
     y += vy;
 
@@ -59,7 +62,7 @@ class leftHeart {
     if (x == 508) {
       stopForwardMovementWhenHeartIsInCenter = true;
     }
-    // places the leftHeart when in the center when the game is over.
+    // places the leftHeart in the center when the game is over.
     if (gameover.stopContolsWhenGameIsOver == true)
     {
       x = 508;

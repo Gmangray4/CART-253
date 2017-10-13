@@ -19,10 +19,11 @@ class Ball {
   int vx;
   int vy;
 
+  // This is set collosion so that the half heart paddle and the balls do not collied when the their not visable. 
   boolean startCollisionForLeftHeart = false;
   boolean startCollisionForRightHeart = false;
-  /////////////// Constructor ///////////////
-
+ 
+  /////////////// Constructor //////////////
   // Ball(int _x, int _y)
   //
   // The constructor sets the variable to their starting values
@@ -37,6 +38,7 @@ class Ball {
     y = _y;
     vx = SPEED;
     vy = SPEED;
+    //Loade's the ball's image. 
     pinkHeart = loadImage("Heart_09.png");
   }
 
@@ -57,7 +59,7 @@ class Ball {
       // If it is, then make it "bounce" by reversing its velocity
       vy = -vy;
     }
-
+    // stops the ball if the game is over and places it in a location where the ball is no longer visable. 
     if (gameover.stopContolsWhenGameIsOver == true) {
       vx = 0;
       vy = 0; 

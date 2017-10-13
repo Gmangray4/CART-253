@@ -1,3 +1,5 @@
+//Text
+
 class Text {
   
   //this is player's 1 awckawrd love text when they score a ponit. 
@@ -9,6 +11,11 @@ class Text {
   int textNumberForP2;
   ;
 
+  //Do u live in corn fild cause im staking you
+  //Are you google cause u have everthing im searching for. 
+  //Are you a strach ??? can I strach and snuff u. 
+  // did you faut because you blow me away.
+  
   Text() {
     loverP1Text[0] = "...";
     loverP1Text[1] = "Nope!";

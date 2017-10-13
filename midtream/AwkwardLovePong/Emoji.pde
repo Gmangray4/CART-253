@@ -1,3 +1,5 @@
+//Emoji
+
 // This class controls how the Emojis will change.
 
 class Emoji {

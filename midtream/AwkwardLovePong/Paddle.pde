@@ -71,15 +71,13 @@ class Paddle {
     // Draw the paddle as a rectangle
     rect(x, y, WIDTH, HEIGHT);
   }
-  
- 
 
   // keyPressed()
   //
   // Called when keyPressed is called in the main program
 
   void keyPressed() {
-
+    // if the game is not over
     if (gameover.stopContolsWhenGameIsOver == false) {
       // Check if the key is our up key
       if (key == upKey) {

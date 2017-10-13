@@ -1,3 +1,5 @@
+//My Own BackGround class
+
 // this class allows the background color to incesse redness from black to red when a score happens on either side. 
 
 class Background {
