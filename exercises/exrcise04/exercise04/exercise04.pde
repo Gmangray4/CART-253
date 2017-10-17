@@ -21,6 +21,10 @@ void setup() {
   frameRate(10);
 
   // QUESTION: What does this for loop do?
+  // This makes sure to set up the griddies aray for the number of array we have.
+  // We have 100 arrays so we have to tell processing to created the initial starting
+  // ponit for each Griddle.
+  // also their position are randomizes so their not drawn on the same spot. 
   for (int i = 0; i < griddies.length; i++) {
     int x = floor(random(0, width/gridSize));
     int y = floor(random(0, height/gridSize));
@@ -44,8 +48,10 @@ void draw() {
     // Now go through all the griddies a second time...
     for (int j = 0; j < griddies.length; j++) {
       // QUESTION: What is this if-statement for?
+      // if a griddlie is equal to the oppsite.
       if (j != i) {
         // QUESTION: What does this line check?
+        // calls the collide method for collide.
         griddies[i].collide(griddies[j]);
       }
     }
