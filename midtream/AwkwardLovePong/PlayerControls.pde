@@ -10,15 +10,15 @@ class PlayerControls {
   String ControlTextDown1;
   String ControlTextUp2;
   String ControlTextDown2;
-  
+
   PlayerControls() {
-   // desplayes the start controls
+    // desplayes the start controls
     ControlTextUp1 = "q";
     ControlTextDown1= "a";
     ControlTextUp2 = "p";
     ControlTextDown2 = ";";
   }
-  
+
   void Update() {
     //Player1's half heart speed is 15 change the controls and control display
     if (p1HalfHeart.Speed == 15) {
@@ -76,7 +76,7 @@ class PlayerControls {
       ControlTextUp2 = "y";
       ControlTextDown2 = "h";
     }
-    
+
     // Sets the control for up and down for the left paddle.
     leftPaddle.upKey = Up1;
     leftPaddle.downKey = Down1;
@@ -90,11 +90,11 @@ class PlayerControls {
     p2HalfHeart.upKey = Up2;
     p2HalfHeart.downKey = Down2;
   }
-  
+
   //displayes the player's current controls.
-  void display(){
-  textSize(100);
-    fill(100,100,255,96);
+  void display() {
+    textSize(100);
+    fill(100, 100, 255, 96);
     text(ControlTextUp1, 250, 100);
     text(ControlTextDown1, 250, 515);
     text(ControlTextUp2, 700, 100);

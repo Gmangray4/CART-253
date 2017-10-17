@@ -22,7 +22,7 @@ class Ball {
   // This is set collosion so that the half heart paddle and the balls do not collied when the their not visable. 
   boolean startCollisionForLeftHeart = false;
   boolean startCollisionForRightHeart = false;
- 
+
   /////////////// Constructor //////////////
   // Ball(int _x, int _y)
   //

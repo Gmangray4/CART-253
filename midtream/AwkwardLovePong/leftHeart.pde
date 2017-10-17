@@ -34,7 +34,7 @@ class leftHeart {
   }
 
 
-  
+
   void appear() {
     //Makes the heart appear and starts Conlssion
     firstContact = true;

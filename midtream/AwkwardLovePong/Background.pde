@@ -9,7 +9,7 @@ class Background {
   Background() {
   }
 
-// the backgorund is displayed as 2 rects that fill the screen
+  // the backgorund is displayed as 2 rects that fill the screen
   void display() {
     noStroke();
     fill(player1Color, 0, 0);

@@ -3,7 +3,7 @@
 // This class controls how the Emojis will change.
 
 class Emoji {
-//size and Emoji number
+  //size and Emoji number
   int player1Emoji = 0;
   int player2Emoji = 0;
   int size = 100; 
@@ -36,7 +36,7 @@ class Emoji {
     player1Emoji = 3;
     player2Emoji = 4;
   }
-//Draw, resize and where to place the Emoji.
+  //Draw, resize and where to place the Emoji.
   void display() {
     imageMode(CENTER);
     image(PlayerEmoji[player1Emoji], 90, 70);

@@ -22,7 +22,7 @@ class SoundTimer {
       // stops itself from playing again.
       PalyGamerOverSound = false;
     }
-    
+
     // This is the timer which loops the background music when the game is over.
     // I had to make a work around for the bgm loop becuase as me and Pippin found that the Sound library
     // does not loop stereo sound in setup only mono.  
@@ -39,7 +39,7 @@ class SoundTimer {
     }
     // When the game is over stop the bgm loop timer. 
     if (gameover.stopContolsWhenGameIsOver == true && stopGameOverSound == false) {
-     // stops the interval from reseting
+      // stops the interval from reseting
       bgmInterval += 0;
       Bgm.stop(); 
       // allows this to only happen once to avoid error in the pranitln with sound. 

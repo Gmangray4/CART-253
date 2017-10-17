@@ -7,7 +7,7 @@ class rightHeart {
   int HEIGHT = 100;
   int WIDTH = 16;
   int size = 150;
-  
+
   // This is used to make the rightHeart appear when set ture + allow collision.
   boolean firstContact;
   // this is to tell the rightHeartv to stop moving futher right when it reaches the center. 
@@ -30,7 +30,7 @@ class rightHeart {
     y = _y;
     upKey = _upKey;
     downKey = _downKey;
-  // loads the png for the leftHeartt in the program.  
+    // loads the png for the leftHeartt in the program.  
     rHeart = loadImage("pinkHeartv2_2.png");
   }
 

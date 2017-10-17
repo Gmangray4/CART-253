@@ -106,6 +106,4 @@ class Paddle {
       vy = 0;
     }
   }
-  
-  
 }

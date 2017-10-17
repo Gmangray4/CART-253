@@ -13,22 +13,20 @@ class EndGame {
   int TheAwkwardLoverIsP1OrP2 = 0;
   // used to stop the controls when the game is over. 
   boolean stopContolsWhenGameIsOver;
- 
+
   EndGame() {
-  
+
     // this text is so to make sure no text is displayed if it does by mistake. that's why the tet is contains nothing. 
     TheAwkwardLoverText[0] = "";
     // who is the Awkward Lover?
     TheAwkwardLoverText[1] = "P1 is the Awkward Lover";
     TheAwkwardLoverText[2] = "P2 is the Awkward Lover!";
-    
+
     // makes sure no text is displayed if it does by mistake. that's why the tet is contains nothing.
     WinText[0] = "";
     // who wins?
     WinText[1] = "P2 Wins!";
     WinText[2] = "P1 Wins!";
-    
- 
   }
   void update() {
     // if the speed of the left half heart is 0 the code will
@@ -55,9 +53,9 @@ class EndGame {
     // Call which text to be displayed and display it. 
     if (p1HalfHeart.Speed == 0 || p2HalfHeart.Speed == 0) 
       textSize(30);
-      fill(0, 0, 255);
-      text(TheAwkwardLoverText[TheAwkwardLoverIsP1OrP2], 334, 300);
-      fill(0, 255, 0);
-      text(WinText[TheAwkwardLoverIsP1OrP2], 414, 350);
-    }
+    fill(0, 0, 255);
+    text(TheAwkwardLoverText[TheAwkwardLoverIsP1OrP2], 334, 300);
+    fill(0, 255, 0);
+    text(WinText[TheAwkwardLoverIsP1OrP2], 414, 350);
   }
+}

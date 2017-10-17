@@ -24,11 +24,15 @@
 // Move paddle up   = q     Move paddle up   = p    
 // Move paddle down = a     Move paddle down = ;
 //------------------------------------------------------------------------------------
-//Credits
-
-// Thansk to Piskelapp.com as my Tool for creating this projects Pngs
+// Credits
+// Thansk to Piskelapp.com as my Tool for creating this projects Pngs,
+// such as the hearts and emojis.
 // This webiste is free open souce wesite where you can qucikly and easlity creaie your own sprites. 
 // Link (https://www.piskelapp.com/) 
+
+// Also Thansks to soundation.com as my Tool for creating my wav.files.
+// This webiste is also open souce and works like logic pro.  
+// Link (https://soundation.com/)
 
 //  And special thanks to thoses who gave suggestions for the  
 //  awkward pickup lines and rejections.
@@ -36,13 +40,13 @@
 //  Ching Su                 "Hey Sugar Pie."
 //  Kim Webb                 "You're the meme of my dreams."
 //  Vicky Bolduc-Brazeau     "U a Keyboard cause Ur my Type."
-//  Jimmy Lee (aka Lito)     "it's never going to happen"
-//  Milan Solivo             "U a Broom because U just swept me off of my feet"
-//                           "U a loto ticket? Cause I'd strach & snuff u"
+//  Jimmy Lee (aka Lito)     "it's never going to happen."
+//  Milan Solivo             "U a Broom because U swept me off my feet."
+//                           "U a loto ticket? Cause I'd strach & snuff u."
 //                           "did you faut because u blow me away."
-//  Carlo Blanco             "If you were a booger I would pick u"
-//  Erika Gutierrez          "Do u live in corn fild cause im staking U" 
-//                           "Are you google cause u have everthing im searching for"
+//  Carlo Blanco             "If you were a booger I would pick u."
+//  Erika Gutierrez          "Do u live in corn fild cause im staking U." 
+//                           "R u google cause u have want Im searching 4."
 //
 //____________________________________________________________________________________
 // Error Note!!!
@@ -51,6 +55,15 @@
 // the orginal reason was becuase stop would be looping itself but I set up the code so the Error does not apeaer during the game.
 // However for some unkwon reason it appears when I stop running the program and I don't know why?
 // he told me the error that appears after closeing the program is not really my issues it's has to with an issue with the sound library.
+// The Errors are wirtting as so and appear only in the console: 
+// ERROR: /node/free: Node 143 not found
+// ERROR: /node/free: Node 144 not found
+// ERROR: /node/free: Node 169 not found
+// ERROR: /node/free: Node 170 not found
+// ERROR: /node/free: Node id -1 out of range
+// ERROR: /node/free: Node id -1 out of range
+// ERROR: /node/free: Node 171 not found
+// ERROR: /node/free: Node 172 not found
 // ____________________________________________________________________________________
 
 // Global variables for the paddles and the ball
@@ -107,7 +120,7 @@ void setup() {
   size(1024, 600);
   // Set the size the frameRate
   frameRate(30);
-  
+
   //This is to check the score in ParintLin if need be.
   //the Score system works by checking the speed of the 2 half heart paddles 
   //and if one equal 0 then the game is over. 
@@ -121,19 +134,19 @@ void setup() {
   //Play Backgorund Theme. 
   Bgm.play();
   Bgm.amp(0.5);
-  
+
   // this creates the changeable player contorl skeem
   playerControls = new PlayerControls();
-  
+
   //this creates the changeable background.
   playerBackground = new Background();
-  
+
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y
   // Also pass through the two keys used to control 'up' and 'down' respectively
   // NOTE: On a mac you can run into trouble if you use keys that create that popup of
   // different accented characters in text editors (so avoid those if you're changing this)
- 
+
   leftPaddle = new Paddle(PADDLE_INSET, height/2, Up1, Down1);
   rightPaddle = new Paddle(width - PADDLE_INSET, height/2, Up2, Down2);
   // Create the ball at the centre of the screen
@@ -142,17 +155,16 @@ void setup() {
   //This is the set up for my Heart paddles class and controls. 
   p1HalfHeart = new leftHeart(PADDLE_INSET, height/2, Up1, Down1);
   p2HalfHeart = new rightHeart(width - PADDLE_INSET, height/2, Up2, Down2);
-  
+
   //sets up text, Emojis a
   text = new Text();
   emoji = new Emoji();
-  
+
   //this creates GameOver condiations 
   gameover = new EndGame();
-  
+
   // this makes the BGM loop when done
   soundTimer = new SoundTimer();
-  
 }
 
 // draw()
@@ -161,8 +173,6 @@ void setup() {
 // if the ball has hit a paddle, and displaying everything.
 
 void draw() {
-   
-  
   // Fill the background each frame so we have animation
   playerBackground.display();
   // Update the paddles and ball by calling their update methods
@@ -228,7 +238,7 @@ void draw() {
     //updates the redness of player 2.
     playerBackground.increaseLoveColorP2();
   }
-   
+
   //if  (p1HalfHeart.heartBiggerThenScreen)(){}
 
   // Displays as titled
