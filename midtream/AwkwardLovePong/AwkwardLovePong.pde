@@ -1,4 +1,4 @@
-// Awkward Relationship Pong!
+// Awkward Love Pong!
 // By Gordon Roland Gray
 //____________________________________________________________________________________
 // Note This Game plays sound files which to run requres you to update your processing Library!
@@ -41,20 +41,19 @@
 //  Kim Webb                 "You're the meme of my dreams."
 //  Vicky Bolduc-Brazeau     "U a Keyboard cause Ur my Type."
 //  Jimmy Lee (aka Lito)     "it's never going to happen."
-//  Milan Solivo             "U a Broom because U swept me off my feet."
-//                           "U a loto ticket? Cause I'd strach & snuff u."
-//                           "did you faut because u blow me away."
-//  Carlo Blanco             "If you were a booger I would pick u."
-//  Erika Gutierrez          "Do u live in corn fild cause im staking U." 
+//  Milan Solivo             "U a Broom Cause U Just Swept Me.."
+//                           "U a Loto Ticket? I'd Scratch U."
+//                           "U Fart? Because U Blow me Away."
+//  Carlo Blanco             "If U Were a Booger I'd Pick U."
+//  Erika Gutierrez          "live in a corn fild? cause im staking U." 
 //                           "R u google cause u have want Im searching 4."
-//
 //____________________________________________________________________________________
 // Error Note!!!
-// Me and Pipper meet up at an offcie hour and we discussed my error that happens during the end of my game.
+// Me and Pipper meet up at during his offcie hour and we discussed my error that happens during the end of my game.
 // The error message appears when you somtimes stop running the program. 
-// the orginal reason was becuase stop would be looping itself but I set up the code so the Error does not apeaer during the game.
+// the orginal reason was becuase the stop() function would be looping itself but I set up the code so the Error does not apeaer during the gameplay or at the very end of the game.
 // However for some unkwon reason it appears when I stop running the program and I don't know why?
-// he told me the error that appears after closeing the program is not really my issues it's has to with an issue with the sound library.
+// he told me the error that appears after closeing the program is not really my issues it's has to do with an issue with the sound library.
 // The Errors are wirtting as so and appear only in the console: 
 // ERROR: /node/free: Node 143 not found
 // ERROR: /node/free: Node 144 not found

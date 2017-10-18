@@ -20,7 +20,7 @@ class Text {
     loverP1Text[6] = "But We Just Met?";
     loverP1Text[7] = "The feelings Dead.";
     loverP1Text[8] = "Chuck Norris Doesn't Approve.";
-    loverP1Text[9] = "It's Never Going to Happen.";
+    loverP1Text[9] = "It's Never Gonna to Happen.";
     loverP1Text[10] = "O_O";
     //when score on say
     loverP1Text[11] = "Your Cute!";
@@ -38,7 +38,7 @@ class Text {
     loverP1Text[23] = "U a Broom Cause U Just Swept Me.";
     loverP1Text[24] = "U a Loto Ticket? I'd Scratch U.";
     loverP1Text[25] = "U Fart? Because U Blow me Away.";
-    loverP1Text[26] = ":D";
+    loverP1Text[26] = "Google? Ur all that I look 4";
     //when scored say
     loverP2Text[0] = "...";
     loverP2Text[1] = "Nope!";
@@ -49,7 +49,7 @@ class Text {
     loverP2Text[6] = "Dating Tips: Don't!";
     loverP2Text[7] = "The Feelings Dead.";
     loverP2Text[8] = "Chuck Norris Doesn't Approve.";
-    loverP2Text[9] = "It's Never Going to Happen.";
+    loverP2Text[9] = "It's Never Gonna to Happen.";
     loverP2Text[10] = "O_O";
     // when score on say
     loverP2Text[11] = "Your Cute!";
@@ -67,7 +67,7 @@ class Text {
     loverP2Text[23] = "U a Broom Cause U Just Swept Me.";
     loverP2Text[24] = "U a Loto Ticket? I'd Scratch U.";
     loverP2Text[25] = "U Fart? Because U Blow me Away.";
-    loverP2Text[26] = ":D";
+    loverP2Text[26] = "Google? Ur all that I look 4";
 
     textNumberForP1 = 0;
     textNumberForP2 = 0;
@@ -84,11 +84,11 @@ class Text {
   // when the ball goes of the screen on the right give a random comment
   void changeTextOfScreenRight() {
     textNumberForP1 = floor(random(11, 26));
-    textNumberForP2 = floor(random(0, 10));
+    textNumberForP2 = floor(random(1, 10));
   }
   // when the ball goes of the screen on the left give a random comment
   void changeTextOfScreenLeft() {
-    textNumberForP1 = floor(random(0, 10));
+    textNumberForP1 = floor(random(1, 10));
     textNumberForP2 = floor(random(11, 26));
   }
 }
