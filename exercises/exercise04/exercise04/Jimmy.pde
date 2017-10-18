@@ -1,7 +1,7 @@
 //Jimmy the Blue Circle!
-
+//Same as Griddie but is a Blue Circle
 class Jimmy{
- int maxEnergy = 255;
+  int maxEnergy = 255;
   int moveEnergy = -1;
   int collideEnergy = 10;
   
@@ -75,6 +75,18 @@ class Jimmy{
       // Constrain the energy level to be within bounds
       energy = constrain(energy,0,maxEnergy);
     }
+    
+    
+    // if Jimmy and Griddies colide when Griddies is purple.
+    // Jimmy becomes Green
+    if (x == griddies[floor(random(0,100))].x && y == griddies[floor(random(0,100))].y && griddies[floor(random(0,100))].fill == color(255,0,255)) {
+    fill = color(0,255,0);
+  }
+    // if Jimmy and Griddies colide when Griddies is Red.
+    // Jimmy becomes blue
+    if (x == griddies[floor(random(0,100))].x && y == griddies[floor(random(0,100))].y && griddies[floor(random(0,100))].fill == color(255,0,0)) {
+    fill = color(0,0,255);
+  }
   }
 
   // display()

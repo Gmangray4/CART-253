@@ -89,8 +89,21 @@ class Griddie {
       // Constrain the energy level to be within bounds
       energy = constrain(energy,0,maxEnergy);
     }
+ 
+ 
+   // if Jimmy and Griddies colide when Jimmy is Red.
+   // Griddies becomes purple
+  if (x == jimmy[floor(random(0,100))].x && y == jimmy[floor(random(0,100))].y && jimmy[floor(random(0,100))].fill == color(0,0,255)) {
+    fill = color(255,0,255);
   }
-
+  // if Jimmy and Griddies colide when Jimmy is green.
+  // Griddies becomes Red
+  if (x == jimmy[floor(random(0,100))].x && y == jimmy[floor(random(0,100))].y && jimmy[floor(random(0,100))].fill == color(0,255,0)) {
+    fill = color(255,0,0);
+  }
+  
+  }
+  
   // display()
   //
   // Draw the Griddie on the screen as a rectangle

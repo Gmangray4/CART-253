@@ -1,7 +1,15 @@
 // Griddies
 // by Pippin Barr
 // MODIFIED BY: Gordon Gray. 
-//
+
+//  I made a new class named Jimmy. 
+//  Jimmy as the same characteriscs of Griddle but is a cricle.
+//  When Jimmy and Griddlie both interact or collide in the space they change color. 
+//  if Jimmy and Griddies colide when Jimmy is Red, Griddies becomes purple.
+//  if Jimmy and Griddies colide when Jimmy is green, Griddies becomes Red.
+//  if Jimmy and Griddies colide when Griddies is purple, Jimmy becomes Green.
+ // if Jimmy and Griddies colide when Griddies is Red, Jimmy becomes blue.
+
 // A simple artificial life system on a grid. The "griddies" are squares that move
 // around randomly, using energy to do so. They gain energy by overlapping with
 // other griddies. If a griddie loses all its energy it dies.
