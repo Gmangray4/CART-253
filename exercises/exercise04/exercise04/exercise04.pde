@@ -1,6 +1,6 @@
 // Griddies
 // by Pippin Barr
-// MODIFIED BY: 
+// MODIFIED BY: Gordon Gray. 
 //
 // A simple artificial life system on a grid. The "griddies" are squares that move
 // around randomly, using energy to do so. They gain energy by overlapping with
@@ -10,6 +10,7 @@
 int gridSize = 20;
 // An array storing all the griddies
 Griddie[] griddies = new Griddie[100];
+Jimmy[] jimmy = new Jimmy[100];
 
 // setup()
 //
@@ -30,6 +31,12 @@ void setup() {
     int y = floor(random(0, height/gridSize));
     griddies[i] = new Griddie(x * gridSize, y * gridSize, gridSize);
   }
+    for (int i = 0; i < jimmy.length; i++) {
+    int x = floor(random(0, width/gridSize));
+    int y = floor(random(0, height/gridSize));
+    jimmy[i] = new Jimmy(x * gridSize, y * gridSize, gridSize);
+  }
+  
 }
 
 // draw()
@@ -40,11 +47,9 @@ void draw() {
   background(50);
 
   // We need to loop through all the griddies one by one
-  for (int i = 0; i < griddies.length; i++) {
-
+  for (int i = 0; i < griddies.length; i++) { 
     // Update the griddies
     griddies[i].update();
-
     // Now go through all the griddies a second time...
     for (int j = 0; j < griddies.length; j++) {
       // QUESTION: What is this if-statement for?
@@ -55,8 +60,23 @@ void draw() {
         griddies[i].collide(griddies[j]);
       }
     }
-    
     // Display the griddies
     griddies[i].display();
+    jimmy[i].display();
   }
+    for (int i = 0; i < jimmy.length; i++) { 
+    // Update the griddies
+    jimmy[i].update();
+    // Now go through all the griddies a second time...
+    for (int j = 0; j < jimmy.length; j++) {
+      // QUESTION: What is this if-statement for?
+      // if a griddlie is equal to the oppsite.
+      if (j != i) {
+        // QUESTION: What does this line check?
+        // calls the collide method for collide.
+        jimmy[i].collide(jimmy[j]);
+      }
+    }
+  jimmy[i].display();
+}
 }
