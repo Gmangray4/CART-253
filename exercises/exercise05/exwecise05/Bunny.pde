@@ -9,8 +9,8 @@ class Bunny {
   int WIDTH = 300;
 
   // The position and velocity of the paddle (note that vx isn't really used right now)
-  int x;
-  int y;
+  int x = width/2;
+  int y = height/2;
   int vx;
   int vy;
   
@@ -83,6 +83,11 @@ class Bunny {
 
   imageMode(CENTER);
   image(body[floor(Anmiation)],x,y);
+  pushMatrix();
+  translate(x,y);
+  scale(-1,1); // You had it right!
+  image(body[floor(Anmiation)],x,y);
+  popMatrix();
   
   time ++;
   
@@ -100,10 +105,8 @@ class Bunny {
   // Called when keyPressed is called in the main program
 
   void keyPressed() {
-    // if the game is not over
-      
+    // if the game is not ove
      keyPress = true;
-  
       if (key == upKey) {
         // If so we want a negative y velocity
         vy = -SPEED;
@@ -121,11 +124,8 @@ class Bunny {
         vx = SPEED;
       }
     }
-    
-     void keyReleased() {
-    
+     void keyReleased() { 
        keyPress = false;
-       
        // Check if the key is our up key and the paddle is moving up
         if (key == upKey && vy < 0) {
       // If so it should stop
@@ -137,12 +137,12 @@ class Bunny {
       vy = 0;
       vx = 0;
     }
-    if (key == rightKey && vy < 0) {
+    if (key == rightKey && vx < 0) {
       // If so it should stop
       vy = 0;
       vx = 0;
       } // Otherwise check if the key is our down key and paddle is moving down 
-    else if (key == leftKey && vy > 0) {
+    else if (key == leftKey && vx > 0) {
       // If so it should stop
       vy = 0;
       vx = 0;
