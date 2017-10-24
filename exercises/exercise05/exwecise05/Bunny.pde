@@ -20,19 +20,16 @@ class Bunny {
   char leftKey;
   char rightKey;
   
+  // tell tell if an key is being prised. 
   Boolean keyPress = false;
 
+  // for Anmiation. 
   int Anmiation;
   
   int time;
 
   /////////////// Constructor ///////////////
-
-  // Paddle(int _x, int _y, char _upKey, char _downKey)
-  //
-  // Sets the position and controls based on arguments,
-  // starts the velocity at 0
-
+  // Bunny contorls.
   Bunny(int _x, int _y, char _upKey, char _downKey, char _rightKey, char _leftKey) {
     
     x = _x;
@@ -45,13 +42,19 @@ class Bunny {
     leftKey = _leftKey;
     rightKey = _rightKey;
     
+    
+  // images of the bunny
+  
+   // idle images
   body[0] = loadImage ("idle_0.png"); 
   body[1] = loadImage ("idle_1.png"); 
-  body[2] = loadImage ("idle_2.png"); 
+  body[2] = loadImage ("idle_2.png");
+  // Running images
   body[3] = loadImage ("running_0.png"); 
   body[4] = loadImage ("running_1.png"); 
   body[5] = loadImage ("running_2.png"); 
   
+  // resizing the images so they fit the screen.
   body[0].resize(WIDTH,HEIGHT);
   body[1].resize(WIDTH,HEIGHT);
   body[2].resize(WIDTH,HEIGHT);
@@ -74,30 +77,34 @@ class Bunny {
 
     // Constrain the paddle's y position to be in the window
   }
-
   // display()
   //
-  // Display the paddle at its location
-
+  // Display the bunny at its location
   void display() {
     // Set display properties
-
   imageMode(CENTER);
   image(body[floor(Anmiation)],x,y);
-  
+
+  // this creates the sencoed bunny
   pushMatrix();
+  // makes sure the bunny is 200 x away from the orginal bunny. 
   translate(200,0);
+  // mirrors the bunny. 
   scale(-1,1); 
+  //display bunny number 2. 
   imageMode(CENTER);
   image(body[floor(Anmiation)],-x,y);
   popMatrix();
-  
+
+  //increase time
   time ++;
   
+  //if no keys are being pressed do the anmation from 0 to 2 so that the idle anmation is in use. 
   if(keyPress == false){
    Anmiation = floor(map(sin(time),-1,1,0, 2));
  
   }
+  //if any key is being pressed do the anmation from 3 to 5 so that the walking anmation is in use. 
   if(keyPress == true){
     Anmiation = floor(map(sin(time),-1,1,3, 5));
   }
@@ -108,7 +115,6 @@ class Bunny {
   // Called when keyPressed is called in the main program
 
   void keyPressed() {
-    // if the game is not ove
      keyPress = true;
       if (key == upKey) {
         // If so we want a negative y velocity
@@ -119,22 +125,22 @@ class Bunny {
         vy = SPEED;
       }
        if (key == rightKey) {
-        // If so we want a negative y velocity
+        // If so we want a negative x velocity
         vx = -SPEED;
       } // Otherwise check if the key is our down key 
       else if (key == leftKey) {
-        // If so we want a positive y velocity
+        // If so we want a positive x velocity
         vx = SPEED;
       }
     }
      void keyReleased() { 
        keyPress = false;
-       // Check if the key is our up key and the paddle is moving up
+       // Check if the key is our up key and if so stop.
         if (key == upKey && vy < 0) {
       // If so it should stop
       vy = 0;
       vx = 0;
-      } // Otherwise check if the key is our down key and paddle is moving down 
+      } // Otherwise check if the key is our down key and if so stop.
     else if (key == downKey && vy > 0) {
       // If so it should stop
       vy = 0;
@@ -144,7 +150,7 @@ class Bunny {
       // If so it should stop
       vy = 0;
       vx = 0;
-      } // Otherwise check if the key is our down key and paddle is moving down 
+      } // Otherwise check if the key is our left key and if so stop.
     else if (key == leftKey && vx > 0) {
       // If so it should stop
       vy = 0;
