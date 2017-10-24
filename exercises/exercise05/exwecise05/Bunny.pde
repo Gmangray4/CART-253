@@ -9,8 +9,8 @@ class Bunny {
   int WIDTH = 300;
 
   // The position and velocity of the paddle (note that vx isn't really used right now)
-  int x = width/2;
-  int y = height/2;
+  int x;
+  int y;
   int vx;
   int vy;
   
@@ -34,6 +34,7 @@ class Bunny {
   // starts the velocity at 0
 
   Bunny(int _x, int _y, char _upKey, char _downKey, char _rightKey, char _leftKey) {
+    
     x = _x;
     y = _y;
     vx = 0;
@@ -83,10 +84,12 @@ class Bunny {
 
   imageMode(CENTER);
   image(body[floor(Anmiation)],x,y);
+  
   pushMatrix();
-  translate(x,y);
-  scale(-1,1); // You had it right!
-  image(body[floor(Anmiation)],x,y);
+  translate(200,0);
+  scale(-1,1); 
+  imageMode(CENTER);
+  image(body[floor(Anmiation)],-x,y);
   popMatrix();
   
   time ++;

@@ -14,7 +14,8 @@ PImage[] body = new PImage[6];
 
 void setup()  {  
 size(800,600);  
-bunny = new Bunny(x, y, 'w', 's', 'a', 'd');
+bunny = new Bunny(width/2, height/2, 'w', 's', 'a', 'd');
+
 }
 
 void draw()
