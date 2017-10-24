@@ -17,10 +17,14 @@ class Bunny {
   // The characters used to make the paddle move up and down, defined in constructor
   char upKey;
   char downKey;
+  char leftKey;
   char rightKey;
   
-  Boolean keyPress;
+  Boolean keyPress = false;
 
+  int Anmiation;
+  
+  int time;
 
   /////////////// Constructor ///////////////
 
@@ -78,13 +82,18 @@ class Bunny {
     // Set display properties
 
   imageMode(CENTER);
-  image(body[floor(random(0,2))],x,y);
+  image(body[floor(Anmiation)],x,y);
+  
+  time ++;
   
   if(keyPress == false){
-  
+   Anmiation = floor(map(sin(time),-1,1,0, 2));
+ 
   }
-  
-}
+  if(keyPress == true){
+    Anmiation = floor(map(sin(time),-1,1,3, 5));
+  }
+  }
 
   // keyPressed()
   //
@@ -92,6 +101,9 @@ class Bunny {
 
   void keyPressed() {
     // if the game is not over
+      
+     keyPress = true;
+  
       if (key == upKey) {
         // If so we want a negative y velocity
         vy = -SPEED;
@@ -109,4 +121,31 @@ class Bunny {
         vx = SPEED;
       }
     }
+    
+     void keyReleased() {
+    
+       keyPress = false;
+       
+       // Check if the key is our up key and the paddle is moving up
+        if (key == upKey && vy < 0) {
+      // If so it should stop
+      vy = 0;
+      vx = 0;
+      } // Otherwise check if the key is our down key and paddle is moving down 
+    else if (key == downKey && vy > 0) {
+      // If so it should stop
+      vy = 0;
+      vx = 0;
+    }
+    if (key == rightKey && vy < 0) {
+      // If so it should stop
+      vy = 0;
+      vx = 0;
+      } // Otherwise check if the key is our down key and paddle is moving down 
+    else if (key == leftKey && vy > 0) {
+      // If so it should stop
+      vy = 0;
+      vx = 0;
+    }
+}
 }

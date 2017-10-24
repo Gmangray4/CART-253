@@ -31,5 +31,9 @@ void draw()
 void keyPressed(){
 
   bunny.keyPressed();
-  
+}
+
+void keyReleased(){
+
+bunny.keyReleased();
 }
