@@ -41,10 +41,12 @@ class Bouncer {
   // Adds the Bouncer's current velocity to its position
   // and checks for bouncing off the walls.
   void update() {
+ 
     x += vx;
     y += vy;
-
     handleBounce();
+   
+   
   }
 
   // handleBounce()
@@ -53,7 +55,9 @@ class Bouncer {
   // and if so reverses its velocity appropriately
 
   void handleBounce() {
-    // Check the left and right
+    
+
+   // Check the left and right
     if (x - size/2 < 0 || x + size/2 > width) {
       // Bounce on the x-axis
       vx = -vx;
@@ -64,7 +68,6 @@ class Bouncer {
       // Bounce on the y-axis
       vy = -vy;
     }
-
     // Make sure the Bouncer isn't off the edge
     x = constrain(x, size/2, width-size/2);
     y = constrain(y, size/2, height-size/2);
@@ -76,7 +79,8 @@ class Bouncer {
   // and with its fill
   void display() {
     noStroke();
-    fill(fillColor);
+    fill(bouncerColor);
     ellipse(x, y, size, size);
   }
+  
 }
