@@ -36,8 +36,6 @@ void setup() {
   // Start up the webcam
   video = new Capture(this, 640, 480, 30);
   video.start();
-  
-  
 }
 
 // draw()

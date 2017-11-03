@@ -45,6 +45,13 @@ class Bouncer {
     x += vx;
     y += vy;
     handleBounce();
+    
+    if (red > 127){
+      
+    } 
+    if (red < 126){
+    
+    } 
    
    
   }
