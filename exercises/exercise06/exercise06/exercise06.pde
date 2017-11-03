@@ -1,5 +1,13 @@
 // Exercise 06
-//
+// Gordon Gray
+// I set the camera to look for the redest thing in the room then change the boncer's color deeping on the amount of red found.
+// I borrowed the code in the perstion side to help me out. 
+// for example how things work is that
+// if their is no red on the screnn then the boncers are black.
+// if somthing red is found but it's a little redest then give the boncers a little bit of red.
+// If somthing is fully red that is found then set the boncers to the color red. 
+// I also shnge the eslpse that tracks the redest obect into a rect and had it to chagne on the redness found as well.
+
 // Using the webcam as input to play with Bouncers.
 
 // Import the video library
@@ -86,12 +94,14 @@ void draw() {
   //changes the boncers color
  bouncerColor = color (red,0,0);
  
+ 
+  //I change the epslie into a rect and made it the same color to blind in with the boncer but not look exactly like the boncer to still visully see the reddest spot.  
   // Draw the video frame to the screen
-  fill(#ff0000);
+  fill(red,0,0);
   image(video, 0, 0);
-  stroke(#ffff00);
+  stroke(red,0,0);
   strokeWeight(10);
-  ellipse(reddestX, reddestY, 10, 10);
+  rect(reddestX, reddestY, 10, 10);
  
   // Our old friend the for-loop running through the length of an array to
   // update and display objects, in this case Bouncers.
