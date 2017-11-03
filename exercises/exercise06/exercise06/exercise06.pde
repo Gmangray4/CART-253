@@ -8,10 +8,12 @@ import processing.video.*;
 // The capture object for reading from the webcam
 Capture video;
 
+//the location of the redest location
 int reddestX = 0;
 int reddestY = 0;
 float record = 1000;
 
+//the value for red
 int red = 200;
 
 color bouncerColor;
@@ -46,7 +48,8 @@ void setup() {
 
 void draw() {
   
-  println(reddestX);
+  
+  
   // A function that processes the current frame of video
   handleVideoInput();
 for ( int x = 1; x < video.width; x++ ) {
@@ -54,30 +57,33 @@ for ( int x = 1; x < video.width; x++ ) {
       int loc = x + y * width;
       color pixelColor = video.pixels[loc];
       float amount = dist(255, 0, 0, red(pixelColor), green(pixelColor), blue(pixelColor));
+      
       if (amount < record) {
         record = amount;
         reddestX = x;
         reddestY = y;
+        println(amount);
+        if (amount < 160) {
+           red = 0;
+        }
+        if (amount < 150) {
+           red = 55;
+        }
+        if (amount < 100) {
+           red = 105;
+        }
+        if (amount < 80) {
+           red = 255;
+        }
+      
       }
     }
   }
-  record = 1000;
+ record = 1000;
   
  bouncerColor = color (red,0,0);
- //BouncerColor
- if (reddestX >= 0 && reddestX <= 320) {
-   red += 25; 
- }
-  if (reddestY >= 0 && reddestY <= 240) {
-   red *=0.5;
- }
-  if (reddestX >= 321 && reddestX <= 640) {
-   red -= 25; 
- }
-  if (reddestY >= 240 && reddestY <= 480) {
-   red /= 0.5;
- }
  
+
   // Draw the video frame to the screen
   fill(#ff0000);
   image(video, 0, 0);
