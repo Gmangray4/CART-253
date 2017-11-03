@@ -47,22 +47,24 @@ void setup() {
 // do something much more interesting in order to actually interact with the Bouncers.
 
 void draw() {
-  
-  
-  
   // A function that processes the current frame of video
   handleVideoInput();
-for ( int x = 1; x < video.width; x++ ) {
+    for ( int x = 1; x < video.width; x++ ) {
     for ( int y = 0; y < video.height; y++ ) {
       int loc = x + y * width;
       color pixelColor = video.pixels[loc];
       float amount = dist(255, 0, 0, red(pixelColor), green(pixelColor), blue(pixelColor));
       
+      // looks for the redest location
       if (amount < record) {
         record = amount;
         reddestX = x;
         reddestY = y;
-        println(amount);
+        
+      // change the boncer's level of redness by the amount of red found on the screen.
+      //if not so much red ness found at the reddest spot the boncer becomes a little red.
+      // if the reddest spot is very red make the boncer fully red.
+      // if no red make the boncers black.
         if (amount < 160) {
            red = 0;
         }
@@ -75,15 +77,15 @@ for ( int x = 1; x < video.width; x++ ) {
         if (amount < 80) {
            red = 255;
         }
-      
       }
     }
   }
+ //resets back to a 1000 so that the system is consently looking for the newset rew location
  record = 1000;
-  
+ 
+  //changes the boncers color
  bouncerColor = color (red,0,0);
  
-
   // Draw the video frame to the screen
   fill(#ff0000);
   image(video, 0, 0);
