@@ -1,18 +1,25 @@
 import processing.sound.*;
 import ddf.minim.*;
 
+boolean nose;
+
 SoundFile[] voice = new SoundFile[16];
 
 
 Minim minim;
 AudioInput mic; // The class that lets us get at the microphone
 
+
+float level;
+int val;
+int array;
+
 void setup() {
   size(500,500);
   
   for (int i = 0; i < voice.length; i++) {
     // We can use the i variable to work out which filename to use!
-    voice[i] = new SoundFile(this, "voice0" + (i+1) + ".wav");
+    voice[i] = new SoundFile(this, "voice" + (i) + ".wav");
   }
 
   minim = new Minim(this);
@@ -27,8 +34,18 @@ void draw() {
   float level = mic.mix.level();
   // Draw a rectangle with dimensions defined by microphone level
   rect(width/2, height/2, width * level, height * level);
-
-if (level >= 400)  {
   
+  val = floor(level*1000);
+  
+  println(val);
+
+if (val >= 250 && nose == false)  {
+    nose = true;
+    array = floor(random(1,15));
+  }
+if (nose == true) {
+    voice[array].play();
+    
+    nose = false;
   }
 }
