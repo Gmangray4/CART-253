@@ -13,9 +13,12 @@ AudioInput mic; // The class that lets us get at the microphone
 float level;
 int val;
 int array;
+color col;
 
 void setup() {
   size(500,500);
+  
+  col = color(255,255,255);
   
   for (int i = 0; i < voice.length; i++) {
     // We can use the i variable to work out which filename to use!
@@ -33,6 +36,7 @@ void draw() {
   // Get the current level (volume) going into the microphone
   float level = mic.mix.level();
   // Draw a rectangle with dimensions defined by microphone level
+  fill(col);
   rect(width/2, height/2, width * level, height * level);
   
   val = floor(level*1000);
@@ -42,10 +46,13 @@ void draw() {
 if (val >= 250 && nose == false)  {
     nose = true;
     array = floor(random(1,15));
+    col = color(255,0,0); 
+  }
+  if (val <= 250 && nose == true)  {
+    nose = false;
   }
 if (nose == true) {
     voice[array].play();
-    
-    nose = false;
   }
+  
 }
