@@ -1,13 +1,13 @@
 Playfield playfield;
 
 String pressedKeys = "";
-String possibleKeys =  "2qaz3wsx4edc5rfv";
-String possibleKeys2 = "6yhn7ujm8ik,9ol.";
+String possibleKeys =  "2345qwertasdfgzxcv";
+String possibleKeys2 = "67890yuiohjklbnm,.";
 char currentKey;
 int score;
 void setup() {
   score = 0;
-  size(1200,600); 
+  size(945,600); 
   currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
   
   playfield = new Playfield();
@@ -16,12 +16,7 @@ void setup() {
 
 void draw() {
   background(0);
-  fill(255);
-  textSize(50);
-  text(currentKey, width/2, height/2 - 100);
-  
   playfield.display();
-  
 }
 
 void keyPressed() {
