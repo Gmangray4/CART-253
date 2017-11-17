@@ -1,52 +1,38 @@
-//
-
-//class
-Text text;
-
+String pressedKeys = "";
+String possibleKeys = "abcdefghijklmnopqrstuvwxyz";
 char currentKey;
-char[] newKey = new char[6];
-String[] currentKeyText = new String[6];
-
-
-int keyNumber;
+int score = 0;
 
 void setup() {
-  size(1200, 650);
-
-  text = new Text();
-
-  newKey[0] = 'a';
-  newKey[1] = 'b';
-  newKey[2] = 'c';
-  newKey[3] = 'd';
-  newKey[4] = 'e';
-  newKey[5] = 'f';
-
-
-  keyNumber = floor(random(0, 4));
+  int score = 0;
+  size(500,600); 
+  currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
 }
 
 void draw() {
-  background(255);
-
-  text.update();
-  text.display();
-
-  //println(currentKey);
+  background(0);
+  fill(255);
+  textSize(50);
+  text(currentKey, width/2, height/2);
 }
 
 void keyPressed() {
-
-  println(key);
-
   if (key == currentKey) {
-    println("Got ut!");
-    keyNumber = floor(random(0, 4));
-    while (currentKey == newKey[keyNumber]) {
-      keyNumber = floor(random(0, 4));
+    pressedKeys += key;
+    if (pressedKeys.length() == possibleKeys.length()) {
+      println("YOU WIN!!!");
+      return;
     }
-    currentKey = newKey[keyNumber];
+    currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
+    while (pressedKeys.indexOf(currentKey) != -1) {
+      currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
+    }
   }
-} 
+}
+
+
 void keyReleased() {
+  if (pressedKeys.indexOf(key) != -1) {
+    println("YOU LOSE!");
+  }
 }
