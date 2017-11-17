@@ -1,8 +1,15 @@
 class Playfield{
-
+  
+  color player1;
+  color player2;
+  color dead;
   int size = 75;
   Playfield(){
-  
+
+    player1 = color(255,0,0);
+    player2 = color(0,0,255);
+    dead = color(0);
+    
   }
   
   void update(){
@@ -10,47 +17,64 @@ class Playfield{
   }
   
   void display(){
-    fill(255,0,0);
     // 2 key
+    fill(player1);
     rect(125,250,size,size);
     //3
+    fill(player1);
     rect(205,250,size,size);
     // 4
+    fill(player1);
     rect(285,250,size,size);
     // 5
+    fill(player1);
     rect(365,250,size,size);
     //q
+    fill(player1);
     rect(100,327,size,size);
     // w
+    fill(player1);
     rect(180,327,size,size);
     //e
+    fill(player1);
     rect(260,327,size,size);
     // r
+    fill(player1);
     rect(340,327,size,size);
     //t
+    fill(player1);
     rect(420,327,size,size);
     //a
+    fill(player1);
     rect(115,405,size,size);
     //s
+    fill(player1);
     rect(195,405,size,size);
     //d
+    fill(player1);
     rect(275,405,size,size);
     //f
+    fill(player1);
     rect(355,405,size,size);
     //g
+    fill(player1);
     rect(435,405,size,size);
     //z
+    fill(player1);
     rect(145,483,size,size);
     //x
+    fill(player1);
     rect(225,483,size,size);
     //c
+    fill(player1);
     rect(305,483,size,size);
     //v
+    fill(player1);
     rect(385,483,size,size);
     
     //player 2
-    fill(0,0,255);
     // 6
+    fill(player2);
     rect(445,250,size,size);
     // 7
     rect(525,250,size,size);
@@ -97,7 +121,7 @@ class Playfield{
     fill(0);
     textSize(40);
     text(currentKey, 277,190);
-    text(currentKey, 600,190);
+    text(currentKeyP2, 600,190);
     
     // key text
     fill(255);
