@@ -33,19 +33,23 @@ class Playfield{
     rect(420,327,size,size);
     //a
     rect(115,405,size,size);
-    //a
+    //s
     rect(195,405,size,size);
-    
-    
-    
+    //d
+    rect(275,405,size,size);
+    //f
+    rect(355,405,size,size);
+    //g
+    rect(435,405,size,size);
     //z
-    rect(145,481,size,size);
-    
-    
-    
- 
-     
-     
+    rect(145,483,size,size);
+    //x
+    rect(225,483,size,size);
+    //c
+    rect(305,483,size,size);
+    //v
+    rect(385,483,size,size);
+
     
      fill(0,0,255);
     //player 2
@@ -66,6 +70,24 @@ class Playfield{
     //o
     rect(740,327,size,size);
     //p
+    //h
+    rect(515,405,size,size);
+    //j
+    rect(595,405,size,size);
+    //k
+    rect(675,405,size,size);
+    //l
+    rect(755,405,size,size);
+    //b
+    rect(465,483,size,size);
+    //n
+    rect(545,483,size,size);
+    //m
+    rect(625,483,size,size);
+    //,
+    rect(705,483,size,size);
+    //.
+    rect(785,483,size,size);
     
   }
 }
