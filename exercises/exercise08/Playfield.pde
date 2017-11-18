@@ -1,114 +1,209 @@
 class Playfield{
   
-  color player1;
-  color player2;
-  color dead;
+  color p1Col = color(255,0,0);
+  color p2Col = color(0,0,255);
+  color dead    = color(0);
+  
+  color rect2;
+  color rect3;
+  color rect4;
+  color rect5;
+  color rect6;
+  color rect7;
+  color rect8;
+  color rect9;
+  color rect0;
+  
+  color rectQ;
+  color rectW;
+  color rectE;
+  color rectR;
+  color rectT;
+  color rectY;
+  color rectU;
+  color rectI;
+  color rectO;
+  
+  color rectA;
+  color rectS;
+  color rectD;
+  color rectF;
+  color rectG;
+  color rectH;
+  color rectJ;
+  color rectK;
+  color rectL;
+  
+  color rectZ;
+  color rectX;
+  color rectC;
+  color rectV;
+  color rectB;
+  color rectN;
+  color rectM;
+  color rectColon;
+  color rectPeriod;
+  
   int size = 75;
+  
   Playfield(){
-
-    player1 = color(255,0,0);
-    player2 = color(0,0,255);
-    dead = color(0);
-    
+      
+  rect2 = p1Col;
+  rect3 = p1Col;
+  rect4 = p1Col;
+  rect5 = p1Col;
+  rectQ = p1Col;
+  rectW = p1Col;
+  rectE = p1Col;
+  rectR = p1Col;
+  rectT = p1Col;
+  rectA = p1Col;
+  rectS = p1Col;
+  rectD = p1Col;
+  rectF = p1Col;
+  rectG = p1Col;
+  rectZ = p1Col;
+  rectX = p1Col;
+  rectC = p1Col;
+  rectV = p1Col;
+ 
+  //Player 2
+  rect6 = p2Col;
+  rect7 = p2Col;
+  rect8 = p2Col;
+  rect9 = p2Col;
+  rect0 = p2Col;
+  rectY = p2Col;
+  rectU = p2Col;
+  rectI = p2Col;
+  rectO = p2Col;
+  rectH = p2Col;
+  rectJ = p2Col;
+  rectK = p2Col;
+  rectL = p2Col;
+  rectPeriod = p2Col;
+  rectB = p2Col;
+  rectN = p2Col;
+  rectM = p2Col;
+  rectColon = p2Col;
+ 
   }
   
   void update(){
-  
+    
+
   }
   
   void display(){
     // 2 key
-    fill(player1);
+    fill(rect2);
     rect(125,250,size,size);
     //3
-    fill(player1);
+    fill(rect3);
     rect(205,250,size,size);
     // 4
-    fill(player1);
+    fill(rect4);
     rect(285,250,size,size);
     // 5
-    fill(player1);
+    fill(rect5);
     rect(365,250,size,size);
     //q
-    fill(player1);
+    fill(rectQ);
     rect(100,327,size,size);
     // w
-    fill(player1);
+    fill(rectW);
     rect(180,327,size,size);
     //e
-    fill(player1);
+    fill(rectE);
     rect(260,327,size,size);
     // r
-    fill(player1);
+    fill(rectR);
     rect(340,327,size,size);
     //t
-    fill(player1);
+    fill(rectT);
     rect(420,327,size,size);
     //a
-    fill(player1);
+    fill(rectA);
     rect(115,405,size,size);
     //s
-    fill(player1);
+    fill(rectS);
     rect(195,405,size,size);
     //d
-    fill(player1);
+    fill(rectD);
     rect(275,405,size,size);
     //f
-    fill(player1);
+    fill(rectF);
     rect(355,405,size,size);
     //g
-    fill(player1);
+    fill(rectG);
     rect(435,405,size,size);
     //z
-    fill(player1);
+    fill(rectZ);
     rect(145,483,size,size);
     //x
-    fill(player1);
+    fill(rectX);
     rect(225,483,size,size);
     //c
-    fill(player1);
+    fill(rectC);
     rect(305,483,size,size);
     //v
-    fill(player1);
+    fill(rectV);
     rect(385,483,size,size);
     
     //player 2
     // 6
-    fill(player2);
+    fill(rect6);
     rect(445,250,size,size);
     // 7
+    fill(rect7);
     rect(525,250,size,size);
     // 8
+    fill(rect8);
     rect(605,250,size,size);
     // 9
+    fill(rect9);
     rect(685,250,size,size);
     // 0
+    fill(rect0);
     rect(765,250,size,size);
     //y
+    fill(rectY);
     rect(500,327,size,size);
     //u
+    fill(rectU);
     rect(580,327,size,size);
     //i
+    fill(rectI);
     rect(660,327,size,size);
     //o
+    fill(rectO);
     rect(740,327,size,size);
     //h
+    fill(rectH);
     rect(515,405,size,size);
     //j
+    fill(rectJ);
     rect(595,405,size,size);
     //k
+    fill(rectK);
     rect(675,405,size,size);
     //l
+    fill(rectL);
     rect(755,405,size,size);
     //b
+    fill(rectB);
     rect(465,483,size,size);
     //n
+    fill(rectN);
     rect(545,483,size,size);
     //m
+    fill(rectM);
     rect(625,483,size,size);
     //,
+    fill(rectColon);
     rect(705,483,size,size);
-    //.
+    //,
+    fill(rectPeriod);
     rect(785,483,size,size);
     
     // Target keys
@@ -173,5 +268,132 @@ class Playfield{
     
     text("Target",230,120);
     text("Target",550,120);
+  }
+  void keyPressed() {
+    //Player1
+    if(key == currentKey && currentKey == '2'){
+        rect2 = dead;   
+    }
+    if(key == currentKey && currentKey == '3'){
+        rect3 = dead;   
+    }
+    if(key == currentKey && currentKey == '4'){
+        rect4 = dead;   
+    }
+    if(key == currentKey && currentKey == '5'){
+        rect5 = dead;   
+    }
+    
+    if(key == currentKey && currentKey == 'q'){
+        rectQ = dead;   
+    }
+    if(key == currentKey && currentKey == 'w'){
+        rectW = dead;   
+    }
+    if(key == currentKey && currentKey == 'e'){
+        rectE = dead;   
+    }
+    if(key == currentKey && currentKey == 'r'){
+        rectR = dead;   
+    }
+    if(key == currentKey && currentKey == 't'){
+        rectT = dead;   
+    }
+    if(key == currentKey && currentKey == 'a'){
+        rectA = dead;   
+    }
+    if(key == currentKey && currentKey == 's'){
+        rectS = dead;   
+    }
+    if(key == currentKey && currentKey == 'd'){
+        rectD = dead;   
+    }
+    
+    if(key == currentKey && currentKey == 'f'){
+        rectF = dead;   
+    }
+    
+
+    if(key == currentKey && currentKey == 'g'){
+        rectG = dead;   
+    }
+    if(key == currentKey && currentKey == 'z'){
+        rectZ = dead;   
+    }
+    if(key == currentKey && currentKey == 'x'){
+        rectX = dead;   
+    }
+    if(key == currentKey && currentKey == 'c'){
+        rectC = dead;   
+    }
+    
+    if(key == currentKey && currentKey == 'v'){
+        rectV = dead;   
+    }
+    
+    
+    
+    
+    
+    //Player2
+    if(key == currentKeyP2 && currentKeyP2 == '6'){
+        rect6 = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == '7'){
+        rect7 = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == '8'){
+        rect8 = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == '9'){
+        rect9 = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == '0'){
+        rect0 = dead;   
+    }
+    
+    if(key == currentKeyP2 && currentKeyP2 == 'y'){
+        rectY = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'u'){
+        rectU = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'i'){
+        rectI = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'o'){
+        rectO = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'l'){
+        rectL = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'h'){
+        rectH = dead;   
+    }
+    
+    if(key == currentKeyP2 && currentKeyP2 == 'j'){
+        rectJ = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'k'){
+        rectK = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'l'){
+        rectL = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'b'){
+        rectB = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'n'){
+        rectN = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == 'm'){
+        rectM = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == ','){
+      rectColon= dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == '.'){
+      rectPeriod  = dead;   
+    }
   }
 }

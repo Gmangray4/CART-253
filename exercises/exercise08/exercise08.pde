@@ -26,6 +26,7 @@ void draw() {
 void keyPressed() {
   // when the key being called is pressd
   if (key == currentKey) {
+    playfield.keyPressed();
     //change keys
     pressedKeys += key;
     println(pressedKeys);
@@ -43,6 +44,7 @@ void keyPressed() {
   }
   if (key == currentKeyP2) {
     //change keys
+    playfield.keyPressed();
     pressedKeysP2 += key;
 
     //when all possble keys in the string are pressed or when all keys are pressed the players win! 
