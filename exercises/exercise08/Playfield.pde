@@ -1,9 +1,12 @@
 class Playfield{
-  
+  // the color for player 1's keys
   color p1Col = color(255,0,0);
+  // the color for player 2's keys
   color p2Col = color(0,0,255);
-  color dead    = color(0);
+  // the color for when a key is dead
+  color dead  = color(0);
   
+  // colors for keys 2 to 0
   color rect2;
   color rect3;
   color rect4;
@@ -13,7 +16,7 @@ class Playfield{
   color rect8;
   color rect9;
   color rect0;
-  
+  // colors for keys q to o
   color rectQ;
   color rectW;
   color rectE;
@@ -23,7 +26,7 @@ class Playfield{
   color rectU;
   color rectI;
   color rectO;
-  
+  // colors for keys a to l
   color rectA;
   color rectS;
   color rectD;
@@ -34,6 +37,7 @@ class Playfield{
   color rectK;
   color rectL;
   
+  // colors for keys z to .
   color rectZ;
   color rectX;
   color rectC;
@@ -43,11 +47,15 @@ class Playfield{
   color rectM;
   color rectColon;
   color rectPeriod;
-  
+  // size of each on screen key
   int size = 75;
   
+  // the constrctor for each on screen key.
+  
   Playfield(){
-      
+  
+  // Player 1's on screen keys.
+  // color for rect keys 2 V
   rect2 = p1Col;
   rect3 = p1Col;
   rect4 = p1Col;
@@ -67,7 +75,8 @@ class Playfield{
   rectC = p1Col;
   rectV = p1Col;
  
-  //Player 2
+  //Player 2's on screen keys.
+  // color for rect keys 6 to .
   rect6 = p2Col;
   rect7 = p2Col;
   rect8 = p2Col;
@@ -89,11 +98,7 @@ class Playfield{
  
   }
   
-  void update(){
-    
-
-  }
-  
+  // displaying the on screen keys and colors. 
   void display(){
     // 2 key
     fill(rect2);
@@ -269,8 +274,13 @@ class Playfield{
     text("Target",230,120);
     text("Target",550,120);
   }
+  
+  // in short when any of the keys are pressed when they are the tagert ones.
+  // the color of the key is change to black and are consder dead. 
   void keyPressed() {
-    //Player1
+    
+    // all if Player1 keys are killed
+    
     if(key == currentKey && currentKey == '2'){
         rect2 = dead;   
     }
@@ -331,11 +341,7 @@ class Playfield{
         rectV = dead;   
     }
     
-    
-    
-    
-    
-    //Player2
+    // all if Player2 keys are killed
     if(key == currentKeyP2 && currentKeyP2 == '6'){
         rect6 = dead;   
     }
