@@ -222,7 +222,6 @@ class Playfield{
     textSize(40);
     text(currentKey, 277,190);
     text(currentKeyP2, 600,190);
-    
     // key text
     fill(255);
     text("2", 150,300);
