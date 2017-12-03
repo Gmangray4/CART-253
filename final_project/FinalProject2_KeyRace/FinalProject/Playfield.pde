@@ -302,7 +302,7 @@ class Playfield{
   void keyPressed() {
     
     // all if Player1 keys are killed
-    if(key == currentKey && currentKey == '2'){
+    if(key == currentKey && currentKey == '1'){
         rect1 = dead;   
     }
     if(key == currentKey && currentKey == '2'){

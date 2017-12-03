@@ -133,6 +133,3 @@ void keyPressed() {
   }
   }
 }
-/// p nedds to color
-// ; colors when l is pressed
-//
