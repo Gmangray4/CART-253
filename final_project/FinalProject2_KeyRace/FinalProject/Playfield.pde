@@ -295,6 +295,51 @@ class Playfield{
     text("m",650,530);
     text(",",730,530);
     text(".",810,530);
+    
+    if (laps == 1 && lap0 == true){
+    rect1 = color(255,0,0); 
+    rect2 = color(255,0,0); 
+    rect3 = color(255,0,0);  
+    rect4 = color(255,0,0); 
+    rect5 = color(255,0,0); 
+    rectQ = color(255,0,0); 
+    rectW = color(255,0,0); 
+    rectE = color(255,0,0); 
+    rectR = color(255,0,0); 
+    rectT = color(255,0,0);
+    rectG = color(255,0,0);
+    rectA = color(255,0,0); 
+    rectS = color(255,0,0); 
+    rectD = color(255,0,0); 
+    rectF = color(255,0,0); 
+    rectZ = color(255,0,0); 
+    rectX = color(255,0,0); 
+    rectC = color(255,0,0); 
+    lap0 = false;
+    lap1 = true;
+    }
+    
+    if (laps == 2 && lap1 == true){
+    rect1 = color(255,0,0); 
+    rect2 = color(255,0,0); 
+    rect3 = color(255,0,0);  
+    rect4 = color(255,0,0); 
+    rectV = color(255,0,0); 
+    rectQ = color(255,0,0); 
+    rectW = color(255,0,0); 
+    rectE = color(255,0,0); 
+    rectR = color(255,0,0); 
+    rectT = color(255,0,0);
+    rectG = color(255,0,0);
+    rectA = color(255,0,0); 
+    rectS = color(255,0,0); 
+    rectD = color(255,0,0); 
+    rectF = color(255,0,0); 
+    rectZ = color(255,0,0); 
+    rectX = color(255,0,0); 
+    rectC = color(255,0,0); 
+    lap1 = false; 
+  }
   }
   
   // in short when any of the keys are pressed when they are the tagert ones.
