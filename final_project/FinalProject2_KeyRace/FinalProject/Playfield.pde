@@ -296,6 +296,8 @@ class Playfield{
     text(",",730,530);
     text(".",810,530);
     
+    // when player 1 crosses the first lap
+    // recolor all the rects
     if (laps == 1 && lap0 == true){
     rect1 = color(255,0,0); 
     rect2 = color(255,0,0); 
@@ -318,7 +320,8 @@ class Playfield{
     lap0 = false;
     lap1 = true;
     }
-    
+    // when player 2 crosses the 2ed lap
+    // recolor all the rects
     if (laps == 2 && lap1 == true){
     rect1 = color(255,0,0); 
     rect2 = color(255,0,0); 
@@ -340,6 +343,50 @@ class Playfield{
     rectC = color(255,0,0); 
     lap1 = false; 
   }
+  if (lapsP2 == 1 && lap0P2 == true){
+    rect6 = color(0,0,255); 
+    rect7 = color(0,0,255); 
+    rect8 = color(0,0,255); 
+    rect9 = color(0,0,255);  
+    rect0 = color(0,0,255); 
+    rectP = color(0,0,255); 
+    rectO = color(0,0,255); 
+    rectI = color(0,0,255); 
+    rectU = color(0,0,255); 
+    rectY = color(0,0,255); 
+    rectH = color(0,0,255);
+    rectJ = color(0,0,255);
+    rectK = color(0,0,255); 
+    rectL = color(0,0,255); 
+    rectSemicolon = color(0,0,255); 
+    rectPeriod = color(0,0,255); 
+    rectColon  = color(0,0,255); 
+    rectM = color(0,0,255); 
+    lap0P2 = false;
+    lap1P2 = true;
+    }
+    if (lapsP2 == 2 && lap1P2 == true){
+    rectN = color(0,0,255); 
+    rect7 = color(0,0,255); 
+    rect8 = color(0,0,255); 
+    rect9 = color(0,0,255);  
+    rect0 = color(0,0,255); 
+    rectP = color(0,0,255); 
+    rectO = color(0,0,255); 
+    rectI = color(0,0,255); 
+    rectU = color(0,0,255); 
+    rectY = color(0,0,255); 
+    rectH = color(0,0,255);
+    rectJ = color(0,0,255);
+    rectK = color(0,0,255); 
+    rectL = color(0,0,255); 
+    rectSemicolon = color(0,0,255); 
+    rectPeriod = color(0,0,255); 
+    rectColon  = color(0,0,255); 
+    rectM = color(0,0,255); 
+    lap1P2 = false;
+    lap2P2 = true;
+    }
   }
   
   // in short when any of the keys are pressed when they are the tagert ones.
