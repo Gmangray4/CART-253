@@ -24,17 +24,16 @@ PImage dojo;
 
 // this is the control keys for player 1
 String pressedKeys = "";
-String possibleKeys =  "54321qwertgfdsazxcvb";
+String possibleKeys =  "54321qwertgfdsazxcv";
 char   currentKey;
 
 int keyIndex = 0;
-
-
+int keyIndexP2 = 0;
 //p;-
 
 // this is the control keys for player 2
 String pressedKeysP2 = "";
-String possibleKeysP2 = "7890-poiuyhjkl;.,mnb";
+String possibleKeysP2 = "67890poiuyhjkl;.,mn";
 char   currentKeyP2;
 
 // when the game is over and who wins,
@@ -58,7 +57,7 @@ void setup() {
   // gives us the a random char character that was convented from the String possibleKeys into currentKey (for player1)
   currentKey = possibleKeys.charAt(keyIndex);
   // gives us the a random char character that was convented from the String possibleKeys into currentKey (for player2)
-  currentKeyP2 = possibleKeysP2.charAt(keyIndex);
+  currentKeyP2 = possibleKeysP2.charAt(keyIndexP2);
   //sets up the Playfield class or aka what's going to be on the game screen.
   playfield = new Playfield();
   gameover = new Gameover();
@@ -67,7 +66,7 @@ void setup() {
  // Bgm = new SoundFile(this, "");
  //   Bgm.loop();
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void draw() {
   //background with change able color due to the 
   image(dojo,0,0);
@@ -76,25 +75,22 @@ void draw() {
   gameover.display();
   println();
 }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void keyPressed() {
   // when the currentKey is pressed  
   
   if (gameisover == false) {
+   
+    
     if (key == currentKey) {
     //change the background to orange
     colBG = color(#FF6C0A);
     //remove a key rect being displayed
    playfield.keyPressed();
-    
-    
     //change the current key
     pressedKeys += key;
     keyIndex++;
-    //when all possble keys in the string are pressed or when all keys are pressed the players win! 
-   
-    
-    
+    //when all possble keys in the string are pressed or when all keys are pressed the players win!  
     if (pressedKeys.length() == possibleKeys.length()) {
       p2wins = true; 
       gameisover = true;
@@ -108,34 +104,35 @@ void keyPressed() {
       currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
     }
   }
-  if (key == currentKeyP2) {
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  if (gameisover == false) {
+   
+    if (key == currentKeyP2) {
     //change the background to orange
     colBG = color(#FF6C0A);
     //remove a key rect being displayed
-    playfield.keyPressed();
+   playfield.keyPressed();
     //change the current key
     pressedKeysP2 += key;
-   
-    //when all possble keys in the string are pressed or when all keys are pressed the players win! 
+    keyIndexP2++;
+    //when all possble keys in the string are pressed or when all keys are pressed the players win!  
     if (pressedKeysP2.length() == possibleKeysP2.length()) {
-      p1wins = true; 
+      p2wins = true; 
       gameisover = true;
-      println("Player 1 WIN!!!");
+      println("Player 2 WIN!!!");
       return;
     }
     //the current is equal to random string that is converted into a char;
-    currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
-    // make sure the key does not = to a past pressed key.
+    currentKeyP2 = possibleKeysP2.charAt(keyIndexP2);
+    // make sure the key does not = to a past pressed key. 
     while (pressedKeysP2.indexOf(currentKeyP2) != -1) {
       currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
     }
+ }
   }
-  }
-  if (gameisover == true);{
-
   }
 }
-void keyReleased() {
-  // when any key is released set the background back to purple
-  colBG = color(#D258FF);
-}
+/// p nedds to color
+// ; colors when l is pressed
+//

@@ -1,4 +1,4 @@
-// add 1, p, ; , -
+// add 1, p, ; Remove 6
 
 class Playfield{
   // the color for player 1's keys
@@ -19,7 +19,7 @@ class Playfield{
   color rect8;
   color rect9;
   color rect0;
-  color rectMinus;
+
   // colors for keys q to o
   color rectQ;
   color rectW;
@@ -87,9 +87,8 @@ class Playfield{
   rect6 = p2Col;
   rect7 = p2Col;
   rect8 = p2Col;
-  rect9     = p2Col;
-  rect0     = p2Col;
-  rectMinus = p2Col;
+  rect9 = p2Col;
+  rect0 = p2Col;
   rectY = p2Col;
   rectU = p2Col;
   rectI = p2Col;
@@ -112,7 +111,7 @@ class Playfield{
   void display(){
     
     // 1 key
-    fill(0);
+    fill(rect1);
     rect(45,250,size,size);
     // 2 key
     fill(rect2);
@@ -185,10 +184,6 @@ class Playfield{
     // 0
     fill(rect0);
     rect(765,250,size,size);
- 
-    //-
-    fill(0);
-    rect(845,250,size,size);
     //y
     fill(rectY);
     rect(500,327,size,size);
@@ -202,7 +197,7 @@ class Playfield{
     fill(rectO);
     rect(740,327,size,size);
     //p
-    fill(0);
+    fill(rectP);
     rect(820,327,size,size);
     //h
     fill(rectH);
@@ -217,8 +212,8 @@ class Playfield{
     fill(rectL);
     rect(755,405,size,size);
     
-    //;
-    fill(0);
+    //; or Semicolon
+    fill(rectSemicolon);
     rect(835,405,size,size);
     
     //b
@@ -243,13 +238,16 @@ class Playfield{
     rect(250,140,size,size);
     // p2's target box
     rect(575,140,size,size);
+    
     // Taget text
     fill(0);
     textSize(40);
     text(currentKey, 277,190);
     text(currentKeyP2, 600,190);
+    
     // key text
     fill(255);
+    text("1", 70,300);
     text("2", 150,300);
     text("3", 230,300);
     text("4", 310,300);
@@ -267,7 +265,8 @@ class Playfield{
     text("y", 525,377);
     text("u", 605,377);
     text("i", 690,377);
-    text("o", 765,377);    
+    text("o", 765,377);  
+    text("p", 845,377); 
     text("a", 140,453);
     text("s", 220,453);
     text("d", 300,453);
@@ -285,7 +284,8 @@ class Playfield{
     text("h", 540,453);
     text("j", 625,453);
     text("k", 700,453);
-    text("l", 780,453);   
+    text("l", 780,453); 
+    text(";", 860,453); 
     text("z",170,530);
     text("x",250,530);
     text("c",330,530);
@@ -302,7 +302,9 @@ class Playfield{
   void keyPressed() {
     
     // all if Player1 keys are killed
-    
+    if(key == currentKey && currentKey == '2'){
+        rect1 = dead;   
+    }
     if(key == currentKey && currentKey == '2'){
         rect2 = dead;   
     }
@@ -315,6 +317,7 @@ class Playfield{
     if(key == currentKey && currentKey == '5'){
         rect5 = dead;   
     }
+    
     
     if(key == currentKey && currentKey == 'q'){
         rectQ = dead;   
@@ -389,11 +392,17 @@ class Playfield{
     if(key == currentKeyP2 && currentKeyP2 == 'i'){
         rectI = dead;   
     }
+    if(key == currentKeyP2 && currentKeyP2 == 'p'){
+        rectP = dead;   
+    }
     if(key == currentKeyP2 && currentKeyP2 == 'o'){
         rectO = dead;   
     }
     if(key == currentKeyP2 && currentKeyP2 == 'l'){
         rectL = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == ';'){
+        rectSemicolon = dead;   
     }
     if(key == currentKeyP2 && currentKeyP2 == 'h'){
         rectH = dead;   
