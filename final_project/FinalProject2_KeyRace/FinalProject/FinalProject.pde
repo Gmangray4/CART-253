@@ -13,6 +13,7 @@
 
 //class for the game space pn the screen // 
 Playfield playfield;
+StartTimer startTimer;
 Sound sound;
 Gameover gameover;
 
@@ -69,7 +70,7 @@ boolean lap2P2 = false;
 boolean p1wins = false;
 
 boolean p2wins = false;
-
+boolean gameStart = false; 
 boolean gameisover; 
 
 // for changing the background
@@ -78,8 +79,9 @@ color colBG;
 void setup() {
   size(1000, 600); 
   Racetrack = loadImage("bg.jpeg");
-  Bgm = new SoundFile(this, "bgm.mp3"); 
+  Bgm = new SoundFile(this, "bgm.mp3");
   Bgm.play();
+  Bgm.amp(0.25);
   
   gameisover = false;
   p1wins = false; 
@@ -91,8 +93,10 @@ void setup() {
   currentKeyP2 = possibleKeysP2.charAt(keyIndexP2);
   //sets up the Playfield class or aka what's going to be on the game screen.
   playfield = new Playfield();
+  startTimer = new StartTimer();
   sound = new Sound();
   gameover = new Gameover();
+  
 
   //sound
   // Bgm = new SoundFile(this, "");
@@ -107,10 +111,12 @@ void draw() {
   gameover.display();
   sound.update();
   println(sound.bgmTime);
+  startTimer.update();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void keyPressed() {
   
+  if (gameStart == true) {
   if (gameisover == false) {
     
     // When at the first lap of the game for palyer 1. 
@@ -275,4 +281,5 @@ void keyPressed() {
       }
     } 
   }
+}
 }

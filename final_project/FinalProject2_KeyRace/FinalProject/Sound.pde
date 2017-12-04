@@ -5,8 +5,6 @@ class Sound {
   boolean PalyGamerOverSound = true;
   boolean stopGameOverSound = false;
 
-  Sound() {
-  }
   void update() {
       // this takes the time interval of the bgm and drops it down by 1 seconed. 
       bgmTime = bgmInterval -int(millis()/1000);
