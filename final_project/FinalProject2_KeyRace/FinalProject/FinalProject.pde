@@ -78,12 +78,12 @@ color colBG;
 void setup() {
   size(1000, 600); 
   Racetrack = loadImage("bg.jpeg");
-
+  Bgm = new SoundFile(this, "bgm.mp3"); 
+  Bgm.play();
+  
   gameisover = false;
   p1wins = false; 
   p2wins = false; 
-
-
   colBG = color(#FF8A15);
   // gives us the a random char character that was convented from the String possibleKeys into currentKey (for player1)
   currentKey = possibleKeys.charAt(keyIndex);
@@ -91,6 +91,7 @@ void setup() {
   currentKeyP2 = possibleKeysP2.charAt(keyIndexP2);
   //sets up the Playfield class or aka what's going to be on the game screen.
   playfield = new Playfield();
+  sound = new Sound();
   gameover = new Gameover();
 
   //sound
@@ -104,7 +105,8 @@ void draw() {
   //background with change able color
   playfield.display();
   gameover.display();
-  println();
+  sound.update();
+  println(sound.bgmTime);
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void keyPressed() {

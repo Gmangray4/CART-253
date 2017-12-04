@@ -1,4 +1,4 @@
-// add 1, p, ; Remove 6
+// 
 
 class Playfield{
   // the color for player 1's keys
@@ -7,6 +7,11 @@ class Playfield{
   color p2Col = color(0,0,255);
   // the color for when a key is dead
   color dead  = color(0);
+  
+  String[] lapsTextsP1 = new String[3]; 
+  int indexLapP1 = 0; 
+  String[] lapTextsP2 = new String[3];
+  int indexLapP2 = 0; 
   
   // colors for keys 2 to 0
   color rect1;
@@ -48,7 +53,6 @@ class Playfield{
   color rectX;
   color rectC;
   color rectV;
-  color rectB;
   color rectN;
   color rectM;
   color rectColon;
@@ -100,11 +104,17 @@ class Playfield{
   rectL = p2Col;
   rectSemicolon = p2Col; 
   rectPeriod = p2Col;
-  rectB = p2Col;
   rectN = p2Col;
   rectM = p2Col;
   rectColon = p2Col;
  
+ lapsTextsP1[0] = "Lap: 1st";
+ lapsTextsP1[1] = "Lap: 2nd";
+ lapsTextsP1[2] = "Lap: Last";
+ 
+ lapTextsP2[0] = "Lap: 1st";
+ lapTextsP2[1] = "Lap: 2nd";
+ lapTextsP2[2] = "Lap: Last";
   }
   
   // displaying the on screen keys and colors. 
@@ -216,9 +226,6 @@ class Playfield{
     fill(rectSemicolon);
     rect(835,405,size,size);
     
-    //b
-    fill(rectB);
-    rect(465,483,size,size);
     //n
     fill(rectN);
     rect(545,483,size,size);
@@ -290,11 +297,14 @@ class Playfield{
     text("x",250,530);
     text("c",330,530);
     text("v",410,530);
-    text("b",490,530);
     text("n",570,530);
     text("m",650,530);
     text(",",730,530);
     text(".",810,530);
+    
+    fill(0);
+    text(lapsTextsP1[indexLapP1],100,50);
+    text(lapTextsP2[indexLapP2],600,50);
     
     // when player 1 crosses the first lap
     // recolor all the rects
@@ -317,10 +327,11 @@ class Playfield{
     rectZ = color(255,0,0); 
     rectX = color(255,0,0); 
     rectC = color(255,0,0); 
+    indexLapP1 = 1;
     lap0 = false;
     lap1 = true;
     }
-    // when player 2 crosses the 2ed lap
+    // when player 1 crosses the 2ed lap
     // recolor all the rects
     if (laps == 2 && lap1 == true){
     rect1 = color(255,0,0); 
@@ -341,6 +352,7 @@ class Playfield{
     rectZ = color(255,0,0); 
     rectX = color(255,0,0); 
     rectC = color(255,0,0); 
+    indexLapP1 = 2;
     lap1 = false; 
   }
   if (lapsP2 == 1 && lap0P2 == true){
@@ -362,6 +374,7 @@ class Playfield{
     rectPeriod = color(0,0,255); 
     rectColon  = color(0,0,255); 
     rectM = color(0,0,255); 
+    indexLapP2 = 1;
     lap0P2 = false;
     lap1P2 = true;
     }
@@ -384,6 +397,7 @@ class Playfield{
     rectPeriod = color(0,0,255); 
     rectColon  = color(0,0,255); 
     rectM = color(0,0,255); 
+    indexLapP2 = 2;
     lap1P2 = false;
     lap2P2 = true;
     }
@@ -508,9 +522,6 @@ class Playfield{
     }
     if(key == currentKeyP2 && currentKeyP2 == 'l'){
         rectL = dead;   
-    }
-    if(key == currentKeyP2 && currentKeyP2 == 'b'){
-        rectB = dead;   
     }
     if(key == currentKeyP2 && currentKeyP2 == 'n'){
         rectN = dead;   
