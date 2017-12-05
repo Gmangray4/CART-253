@@ -1,7 +1,7 @@
 class StartTimer{
         
   int time;
-  int interval = 6;
+  int interval = 5;
  void update() {
       
      if( time >= 0){
