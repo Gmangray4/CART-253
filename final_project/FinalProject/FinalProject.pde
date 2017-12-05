@@ -1,22 +1,25 @@
-// Key Sau
+// Key or Respeak!
 
-// This is the working prodotype for my game.
-// its a 2 player game where you have to try and remove the other players and keeping them from tuching yours. 
+//This is a 2 player game that uses vreous keys on the keybourd, and the mic.
+// Bsically you have a sets of keys on the keybournd for each player must press down.
+// There given a taget key that they must pressdown and the player must press all the targeted keys to win the game.
+// However....
+// If any player were to speak or make a loud sound.
+// all keys will reset: meaning all players will have to start from the start again. 
 
-// Rules // 
-// Both player must try and touch and keys on the other players side of the screen/keyborad. 
-// Players must touch the key the program tells them to, Which is under target. 
-// when a key is touch a key is consder dead
-// when all keys on your side of the screen are dead you lose. 
-// the only obstacle in the game is the other person's hand. 
+// this is a trick that can keep the other player from winning, although this will reset your keys as well.
+// Are you down to key or are you down to speak?
+// speak wisely. 
 
-
+import ddf.minim.*;
+import processing.sound.*;
 //class for the game space pn the screen // 
 Playfield playfield;
 Sound sound;
+Minim minim;
+AudioInput mic; // The class that lets us get at the microphone
 Gameover gameover;
 
-import processing.sound.*;
 SoundFile Bgm;
 
 // the dojo background
@@ -43,7 +46,7 @@ color colBG;
 void setup() {
   size(945,600); 
   dojo = loadImage("bg.jpg");
-  
+  // used to create the filenames and arays so the computer can yell at you.  
   gameisover = false;
   p1wins = false; 
   p2wins = false; 
@@ -55,18 +58,26 @@ void setup() {
   // gives us the a random char character that was convented from the String possibleKeys into currentKey (for player2)
   currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeys.length())));
   //sets up the Playfield class or aka what's going to be on the game screen.
+  sound = new Sound();
   playfield = new Playfield();
   gameover = new Gameover();
   
   //sound
  // Bgm = new SoundFile(this, "");
  //   Bgm.loop();
+ 
+ // used to create the filenames and arays so the computer can yell at you.  
+  for (int i = 0; i < sound.voice.length; i++) {
+    // We can use the i variable to work out which filename to use!
+    sound.voice[i] = new SoundFile(this, "voice" + (i) + ".wav");
+  }
 }
 
 void draw() {
   //background with change able color due to the 
-  image(dojo,0,0);
+  background(0);
   //background with change able color
+  sound.update();
   playfield.display();
   gameover.display();
   
@@ -121,9 +132,7 @@ void keyPressed() {
     }
   }
   }
-  if (gameisover == true);{
-
-  }
+  
 }
 void keyReleased() {
   // when any key is released set the background back to purple

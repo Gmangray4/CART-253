@@ -82,7 +82,7 @@ if (val >= 250 && nose == false)  {
   // sets the background back to black
   if (val <= 250 && nose == true)  {
     nose = false;
-    col = color(0,0,255);
+    col = color(#FFF30A);
     bgCol = color(0,0,0);
   }
   // play the voice of the rect if the nose is ture.

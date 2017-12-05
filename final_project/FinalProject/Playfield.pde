@@ -100,6 +100,7 @@ class Playfield{
   
   // displaying the on screen keys and colors. 
   void display(){
+    rectMode(CORNER);
     // 2 key
     fill(rect2);
     rect(125,250,size,size);
@@ -272,6 +273,48 @@ class Playfield{
     
     text("Target",230,120);
     text("Target",550,120);
+    
+    if (sound.nose == true){
+     rect2 = p1Col;
+  rect3 = p1Col;
+  rect4 = p1Col;
+  rect5 = p1Col;
+  rectQ = p1Col;
+  rectW = p1Col;
+  rectE = p1Col;
+  rectR = p1Col;
+  rectT = p1Col;
+  rectA = p1Col;
+  rectS = p1Col;
+  rectD = p1Col;
+  rectF = p1Col;
+  rectG = p1Col;
+  rectZ = p1Col;
+  rectX = p1Col;
+  rectC = p1Col;
+  rectV = p1Col;
+ 
+  //Player 2's on screen keys.
+  // color for rect keys 6 to .
+  rect6 = p2Col;
+  rect7 = p2Col;
+  rect8 = p2Col;
+  rect9 = p2Col;
+  rect0 = p2Col;
+  rectY = p2Col;
+  rectU = p2Col;
+  rectI = p2Col;
+  rectO = p2Col;
+  rectH = p2Col;
+  rectJ = p2Col;
+  rectK = p2Col;
+  rectL = p2Col;
+  rectPeriod = p2Col;
+  rectB = p2Col;
+  rectN = p2Col;
+  rectM = p2Col;
+  rectColon = p2Col;
+    }
   }
   
   // in short when any of the keys are pressed when they are the tagert ones.
