@@ -24,7 +24,7 @@ SoundFile keySound;
 SoundFile lapSound;
 
 // the dojo background
-PImage dojo;
+PImage race;
 
 // this is the control keys for player 1
 //String pressedKeys = "";
@@ -32,21 +32,23 @@ String possibleKeys =  "12345tgvcxzaq1";
 char   currentKey;
 
 // this is the control keys for player 2
-String pressedKeysP2 = "";
-String possibleKeysP2 = "67890yuiohjklbnm,.";
+String possibleKeysP2 = "7890p;.,mnhy7";
 char   currentKeyP2;
 
 // when the game is over and who wins,
 boolean p1wins = false;;
 boolean p2wins = false;;
 boolean gameisover; 
-boolean qPressed;
 
+boolean qPressed;
+boolean yPressed;
 // for changing the background
 color colBG; 
 
 int laps;
+int lapsP2;
 int keyIndex;
+int keyIndexP2;
 void setup() {
   size(945,600);
   // used to create the filenames and arays so the computer can yell at you.  
@@ -60,7 +62,7 @@ void setup() {
   ///////////////////////////////////////////////////////
   
   // gives us the a random char character that was convented from the String possibleKeys into currentKey (for player2)
-  currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
+  currentKeyP2 = possibleKeysP2.charAt(keyIndexP2);
   //sets up the Playfield class or aka what's going to be on the game screen.
   sound = new Sound();
   // the color of the background is determinded by the sound class
@@ -106,30 +108,23 @@ void keyPressed() {
      
   
   if (key == currentKeyP2) {
-    //change the background to orange
     //remove a key rect being displayed
     playfield.keyPressed();
-    //change the current key
     // play a sound when key is pressed
     keySound.play();
-    pressedKeysP2 += key;
-   
+    //change the current key
+    keyIndexP2++;
     //when all possble keys in the string are pressed or when all keys are pressed the players win! 
-    if (pressedKeysP2.length() == possibleKeysP2.length()) {
-    
-      
-      //pressedKeysP2 = "";
-      //possibleKeysP2 = "67890yuiohjklbnm,.";
-      //currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
-      //playfield.p2Col = color(0,0,255);
-      
+      if (currentKeyP2 == 'y' && yPressed == false) {
+      yPressed = true;  
     }
-    //the current is equal to random string that is converted into a char;
-    currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
-    // make sure the key does not = to a past pressed key.
-    while (pressedKeysP2.indexOf(currentKeyP2) != -1) {
-      currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
+      if (key == '7' && yPressed == true) {
+      lapsP2++; 
+      yPressed = false;
+      keyIndexP2 = 1;
+      lapSound.play();
     }
-  }
+     currentKeyP2 = possibleKeysP2.charAt(keyIndexP2);
+    }
   }
 }
