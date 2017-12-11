@@ -34,7 +34,7 @@ PImage racetrack;
 
 // this is the control keys for player 1
 //String pressedKeys = "";
-String possibleKeys =  "12345tgvcxzaq1";
+String possibleKeys =  "2345tgvcxzaq2";
 char   currentKey;
 
 // this is the control keys for player 2
@@ -49,6 +49,8 @@ boolean gameisover;
 
 boolean qPressed;
 boolean yPressed;
+boolean fillColor;
+boolean fillColorP2;
 // for changing the background
 color colBG; 
 
@@ -111,9 +113,10 @@ void keyPressed() {
     keyIndex++;
     //when all possble keys in the string are pressed or when all keys are pressed the players win! 
       if (currentKey == 'q' && qPressed == false) {
-      qPressed = true;  
+      qPressed = true;
+      fillColor = true;
     }
-      if (key == '1' && qPressed == true) {
+      if (key == '2' && qPressed == true) {
       laps++; 
       qPressed = false;
       keyIndex = 1;
@@ -133,6 +136,7 @@ void keyPressed() {
     //when all possble keys in the string are pressed or when all keys are pressed the players win! 
       if (currentKeyP2 == 'y' && yPressed == false) {
       yPressed = true;  
+      fillColorP2 = true;
     }
       if (key == '7' && yPressed == true) {
       lapsP2++; 
