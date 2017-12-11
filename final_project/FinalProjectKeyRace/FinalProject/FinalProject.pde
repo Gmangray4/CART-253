@@ -21,13 +21,14 @@ AudioInput mic; // The class that lets us get at the microphone
 Gameover gameover;
 
 SoundFile keySound;
+SoundFile lapSound;
 
 // the dojo background
 PImage dojo;
 
 // this is the control keys for player 1
-String pressedKeys = "";
-String possibleKeys =  "2345qwertasdfgzxcv";
+//String pressedKeys = "";
+String possibleKeys =  "12345tgvcxzaq1";
 char   currentKey;
 
 // this is the control keys for player 2
@@ -39,10 +40,13 @@ char   currentKeyP2;
 boolean p1wins = false;;
 boolean p2wins = false;;
 boolean gameisover; 
+boolean qPressed;
 
 // for changing the background
 color colBG; 
 
+int laps;
+int keyIndex;
 void setup() {
   size(945,600);
   // used to create the filenames and arays so the computer can yell at you.  
@@ -50,29 +54,28 @@ void setup() {
   p1wins = false; 
   p2wins = false; 
   keySound= new SoundFile(this, "key.wav");
+  lapSound= new SoundFile(this, "Lap.wav");
   // gives us the a random char character that was convented from the String possibleKeys into currentKey (for player1)
-  currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
+  currentKey = possibleKeys.charAt(keyIndex);
+  ///////////////////////////////////////////////////////
+  
   // gives us the a random char character that was convented from the String possibleKeys into currentKey (for player2)
-  currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeys.length())));
+  currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
   //sets up the Playfield class or aka what's going to be on the game screen.
   sound = new Sound();
   // the color of the background is determinded by the sound class
-  colBG = sound.bgCol;
   playfield = new Playfield();
   gameover = new Gameover();
   
  // used to create the filenames and arays so the computer can yell at you.  
-  for (int i = 0; i < sound.voice.length; i++) {
-    // We can use the i variable to work out which filename to use!
-    sound.voice[i] = new SoundFile(this, "voice" + (i) + ".wav");
-  }
+
 }
 
 void draw() {
   //background with change able color due to the 
   background(colBG);
   //background with change able color
-  sound.update();
+
   playfield.display();
   gameover.display();
 }
@@ -87,21 +90,21 @@ void keyPressed() {
     // play a sound when key is pressed
     keySound.play();
     //change the current key
-    pressedKeys += key;
+    keyIndex++;
     //when all possble keys in the string are pressed or when all keys are pressed the players win! 
-    if (pressedKeys.length() == possibleKeys.length()) {
-      p2wins = true; 
-      gameisover = true;
-      println("Player 2 WIN!!!");
-      return;
+      if (currentKey == 'q' && qPressed == false) {
+      qPressed = true;  
     }
-    //the current is equal to random string that is converted into a char;
-    currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
-    // make sure the key does not = to a past pressed key. 
-    while (pressedKeys.indexOf(currentKey) != -1) {
-      currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
+      if (key == '1' && qPressed == true) {
+      laps++; 
+      qPressed = false;
+      keyIndex = 1;
+      lapSound.play();
     }
-  }
+     currentKey = possibleKeys.charAt(keyIndex);
+    }
+     
+  
   if (key == currentKeyP2) {
     //change the background to orange
     //remove a key rect being displayed
@@ -113,10 +116,13 @@ void keyPressed() {
    
     //when all possble keys in the string are pressed or when all keys are pressed the players win! 
     if (pressedKeysP2.length() == possibleKeysP2.length()) {
-      p1wins = true; 
-      gameisover = true;
-      println("Player 1 WIN!!!");
-      return;
+    
+      
+      //pressedKeysP2 = "";
+      //possibleKeysP2 = "67890yuiohjklbnm,.";
+      //currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
+      //playfield.p2Col = color(0,0,255);
+      
     }
     //the current is equal to random string that is converted into a char;
     currentKeyP2 = possibleKeysP2.charAt(floor(random(0, possibleKeysP2.length())));
@@ -126,5 +132,4 @@ void keyPressed() {
     }
   }
   }
-  
 }

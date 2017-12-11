@@ -6,7 +6,13 @@ class Playfield{
   // the color for when a key is dead
   color dead  = color(0);
   
+  String[] lapsTextsP1 = new String[9]; 
+  int indexLapP1 = 0; 
+  String[] lapTextsP2 = new String[3];
+  int indexLapP2 = 0; 
+  
   // colors for keys 2 to 0
+  color rect1;
   color rect2;
   color rect3;
   color rect4;
@@ -16,6 +22,7 @@ class Playfield{
   color rect8;
   color rect9;
   color rect0;
+
   // colors for keys q to o
   color rectQ;
   color rectW;
@@ -26,6 +33,7 @@ class Playfield{
   color rectU;
   color rectI;
   color rectO;
+  color rectP;
   // colors for keys a to l
   color rectA;
   color rectS;
@@ -36,13 +44,13 @@ class Playfield{
   color rectJ;
   color rectK;
   color rectL;
+  color rectSemicolon;
   
   // colors for keys z to .
   color rectZ;
   color rectX;
   color rectC;
   color rectV;
-  color rectB;
   color rectN;
   color rectM;
   color rectColon;
@@ -56,6 +64,7 @@ class Playfield{
   
   // Player 1's on screen keys.
   // color for rect keys 2 V
+  rect1 = p1Col;
   rect2 = p1Col;
   rect3 = p1Col;
   rect4 = p1Col;
@@ -86,21 +95,39 @@ class Playfield{
   rectU = p2Col;
   rectI = p2Col;
   rectO = p2Col;
+  rectP = p2Col;
   rectH = p2Col;
   rectJ = p2Col;
   rectK = p2Col;
   rectL = p2Col;
+  rectSemicolon = p2Col; 
   rectPeriod = p2Col;
-  rectB = p2Col;
   rectN = p2Col;
   rectM = p2Col;
   rectColon = p2Col;
  
+ lapsTextsP1[0] = "Lap: 1";
+ lapsTextsP1[1] = "Lap: 2";
+ lapsTextsP1[2] = "Lap: 3";
+ lapsTextsP1[3] = "Lap: 4";
+ lapsTextsP1[4] = "Lap: 5";
+ lapsTextsP1[5] = "Lap: 6";
+ lapsTextsP1[6] = "Lap: 7";
+ lapsTextsP1[7] = "Lap: Last";
+ lapsTextsP1[8] = "Lap: Win!";
+
+ 
+ lapTextsP2[0] = "Lap: 1st";
+ lapTextsP2[1] = "Lap: 2nd";
+ lapTextsP2[2] = "Lap: Last";
   }
   
   // displaying the on screen keys and colors. 
   void display(){
-    rectMode(CORNER);
+    
+    // 1 key
+    fill(rect1);
+    rect(45,250,size,size);
     // 2 key
     fill(rect2);
     rect(125,250,size,size);
@@ -184,6 +211,9 @@ class Playfield{
     //o
     fill(rectO);
     rect(740,327,size,size);
+    //p
+    fill(rectP);
+    rect(820,327,size,size);
     //h
     fill(rectH);
     rect(515,405,size,size);
@@ -196,9 +226,11 @@ class Playfield{
     //l
     fill(rectL);
     rect(755,405,size,size);
-    //b
-    fill(rectB);
-    rect(465,483,size,size);
+    
+    //; or Semicolon
+    fill(rectSemicolon);
+    rect(835,405,size,size);
+    
     //n
     fill(rectN);
     rect(545,483,size,size);
@@ -218,13 +250,16 @@ class Playfield{
     rect(250,140,size,size);
     // p2's target box
     rect(575,140,size,size);
+    
     // Taget text
     fill(0);
     textSize(40);
     text(currentKey, 277,190);
     text(currentKeyP2, 600,190);
+    
     // key text
     fill(255);
+    text("1", 70,300);
     text("2", 150,300);
     text("3", 230,300);
     text("4", 310,300);
@@ -242,7 +277,8 @@ class Playfield{
     text("y", 525,377);
     text("u", 605,377);
     text("i", 690,377);
-    text("o", 765,377);    
+    text("o", 765,377);  
+    text("p", 845,377); 
     text("a", 140,453);
     text("s", 220,453);
     text("d", 300,453);
@@ -260,67 +296,31 @@ class Playfield{
     text("h", 540,453);
     text("j", 625,453);
     text("k", 700,453);
-    text("l", 780,453);   
+    text("l", 780,453); 
+    text(";", 860,453); 
     text("z",170,530);
     text("x",250,530);
     text("c",330,530);
     text("v",410,530);
-    text("b",490,530);
     text("n",570,530);
     text("m",650,530);
     text(",",730,530);
     text(".",810,530);
     
-    text("Target",230,120);
-    text("Target",550,120);
+    fill(0,255,0);
+    text("Laps: " +  laps,100,50);
+    text(lapTextsP2[indexLapP2],600,50);
     
-  if (sound.nose == true){
-  rect2 = p1Col;
-  rect3 = p1Col;
-  rect4 = p1Col;
-  rect5 = p1Col;
-  rectQ = p1Col;
-  rectW = p1Col;
-  rectE = p1Col;
-  rectR = p1Col;
-  rectT = p1Col;
-  rectA = p1Col;
-  rectS = p1Col;
-  rectD = p1Col;
-  rectF = p1Col;
-  rectG = p1Col;
-  rectZ = p1Col;
-  rectX = p1Col;
-  rectC = p1Col;
-  rectV = p1Col;
- 
-  //Player 2's on screen keys.
-  // color for rect keys 6 to .
-  rect6 = p2Col;
-  rect7 = p2Col;
-  rect8 = p2Col;
-  rect9 = p2Col;
-  rect0 = p2Col;
-  rectY = p2Col;
-  rectU = p2Col;
-  rectI = p2Col;
-  rectO = p2Col;
-  rectH = p2Col;
-  rectJ = p2Col;
-  rectK = p2Col;
-  rectL = p2Col;
-  rectPeriod = p2Col;
-  rectB = p2Col;
-  rectN = p2Col;
-  rectM = p2Col;
-  rectColon = p2Col;
-    }
   }
   
   // in short when any of the keys are pressed when they are the tagert ones.
   // the color of the key is change to black and are consder dead. 
   void keyPressed() {
+    
     // all if Player1 keys are killed
+    if(key == currentKey && currentKey == '1'){
+        rect1 = dead;   
+    }
     if(key == currentKey && currentKey == '2'){
         rect2 = dead;   
     }
@@ -333,7 +333,8 @@ class Playfield{
     if(key == currentKey && currentKey == '5'){
         rect5 = dead;   
     }
-
+    
+    
     if(key == currentKey && currentKey == 'q'){
         rectQ = dead;   
     }
@@ -407,11 +408,17 @@ class Playfield{
     if(key == currentKeyP2 && currentKeyP2 == 'i'){
         rectI = dead;   
     }
+    if(key == currentKeyP2 && currentKeyP2 == 'p'){
+        rectP = dead;   
+    }
     if(key == currentKeyP2 && currentKeyP2 == 'o'){
         rectO = dead;   
     }
     if(key == currentKeyP2 && currentKeyP2 == 'l'){
         rectL = dead;   
+    }
+    if(key == currentKeyP2 && currentKeyP2 == ';'){
+        rectSemicolon = dead;   
     }
     if(key == currentKeyP2 && currentKeyP2 == 'h'){
         rectH = dead;   
@@ -425,9 +432,6 @@ class Playfield{
     }
     if(key == currentKeyP2 && currentKeyP2 == 'l'){
         rectL = dead;   
-    }
-    if(key == currentKeyP2 && currentKeyP2 == 'b'){
-        rectB = dead;   
     }
     if(key == currentKeyP2 && currentKeyP2 == 'n'){
         rectN = dead;   

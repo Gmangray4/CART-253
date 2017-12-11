@@ -49,7 +49,7 @@ if (val >= 250 && nose == false)  {
     nose = true;
     array = floor(random(1,41));
     col = color(255,138,21);
-    bgCol = color(255,138,21);
+    bgCol = color(255,53,3);
 
   }
   // nose drops
@@ -59,12 +59,11 @@ if (val >= 250 && nose == false)  {
   if (val <= 250 && nose == true)  {
     nose = false;
     col = color(#FFF30A);
-    bgCol = color(255,214,3);
+    bgCol = color(0);
   }
   // play the voice of the rect if the nose is ture.
 if (nose == true) {
     voice[array].play();
-    
     pressedKeys = "";
     possibleKeys =  "2345qwertasdfgzxcv";
     currentKey = possibleKeys.charAt(floor(random(0, possibleKeys.length())));
