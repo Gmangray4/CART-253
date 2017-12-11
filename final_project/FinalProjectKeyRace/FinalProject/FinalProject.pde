@@ -22,6 +22,7 @@ Gameover gameover;
 
 SoundFile keySound;
 SoundFile lapSound;
+SoundFile FinalLapSound;
 
 // the dojo background
 PImage race;
@@ -57,6 +58,7 @@ void setup() {
   p2wins = false; 
   keySound= new SoundFile(this, "key.wav");
   lapSound= new SoundFile(this, "Lap.wav");
+  FinalLapSound= new SoundFile(this, "LapFinal.wav");
   // gives us the a random char character that was convented from the String possibleKeys into currentKey (for player1)
   currentKey = possibleKeys.charAt(keyIndex);
   ///////////////////////////////////////////////////////
@@ -77,7 +79,7 @@ void draw() {
   //background with change able color due to the 
   background(colBG);
   //background with change able color
-
+  sound.update();
   playfield.display();
   gameover.display();
 }
@@ -126,5 +128,14 @@ void keyPressed() {
     }
      currentKeyP2 = possibleKeysP2.charAt(keyIndexP2);
     }
+  }
+  
+  if (laps == 20){
+     p1wins = true;
+     gameisover = true;
+  }
+  if (lapsP2 == 20){
+     p2wins = true;
+     gameisover = true;
   }
 }

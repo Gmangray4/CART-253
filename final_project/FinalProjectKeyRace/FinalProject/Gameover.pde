@@ -1,8 +1,7 @@
 class Gameover {
 
  void display(){
-
-
+ 
    if(p1wins == true){
      fill(246,255,3);
      rect(370,140,160,75);
