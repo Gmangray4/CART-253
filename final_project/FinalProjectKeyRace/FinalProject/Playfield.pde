@@ -309,7 +309,7 @@ class Playfield{
     
     fill(0,255,0);
     text("Laps: " +  laps,100,50);
-    text(lapTextsP2[indexLapP2],600,50);
+    text("Laps: " +  lapsP2,600,50);
     
   }
   

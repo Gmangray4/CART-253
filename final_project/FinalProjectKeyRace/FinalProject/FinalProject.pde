@@ -19,13 +19,14 @@ Sound sound;
 Minim minim;
 AudioInput mic; // The class that lets us get at the microphone
 Gameover gameover;
+StartTimer starTimer;
 
 SoundFile keySound;
 SoundFile lapSound;
 SoundFile FinalLapSound;
 
 // the dojo background
-PImage race;
+PImage racetrack;
 
 // this is the control keys for player 1
 //String pressedKeys = "";
@@ -39,6 +40,7 @@ char   currentKeyP2;
 // when the game is over and who wins,
 boolean p1wins = false;;
 boolean p2wins = false;;
+boolean gameStart = false; 
 boolean gameisover; 
 
 boolean qPressed;
@@ -70,6 +72,7 @@ void setup() {
   // the color of the background is determinded by the sound class
   playfield = new Playfield();
   gameover = new Gameover();
+  starTimer = new StartTimer();
   
  // used to create the filenames and arays so the computer can yell at you.  
 
@@ -82,11 +85,12 @@ void draw() {
   sound.update();
   playfield.display();
   gameover.display();
+  starTimer.update();
 }
 
 void keyPressed() {
   // when the currentKey is pressed  
-  
+  if (gameStart == true) {
   if (gameisover == false) {
     if (key == currentKey) {
     //remove a key rect being displayed
@@ -138,4 +142,5 @@ void keyPressed() {
      p2wins = true;
      gameisover = true;
   }
+}
 }
