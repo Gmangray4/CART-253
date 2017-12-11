@@ -13,6 +13,7 @@
 
 import ddf.minim.*;
 import processing.sound.*;
+import processing.video.*;
 //class for the game space pn the screen // 
 Playfield playfield;
 Sound sound;
@@ -24,6 +25,9 @@ StartTimer starTimer;
 SoundFile keySound;
 SoundFile lapSound;
 SoundFile FinalLapSound;
+SoundFile Bgm;
+
+Movie vid;
 
 // the dojo background
 PImage racetrack;
@@ -53,7 +57,13 @@ int lapsP2;
 int keyIndex;
 int keyIndexP2;
 void setup() {
-  size(945,600);
+  size(1000, 600);
+  vid = new Movie(this, "vid.mp4");
+  vid.play();
+  vid.loop();
+  Bgm = new SoundFile(this, "bgm.mp3");
+  Bgm.play();
+  Bgm.amp(0.25);
   // used to create the filenames and arays so the computer can yell at you.  
   gameisover = false;
   p1wins = false; 
@@ -79,9 +89,9 @@ void setup() {
 }
 
 void draw() {
-  //background with change able color due to the 
-  background(colBG);
-  //background with change able color
+
+   image(vid, 0, -100, 1000, 900);
+ 
   sound.update();
   playfield.display();
   gameover.display();
@@ -143,4 +153,7 @@ void keyPressed() {
      gameisover = true;
   }
 }
+}
+void movieEvent(Movie m) {
+  m.read();
 }
