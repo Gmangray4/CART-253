@@ -7,12 +7,9 @@ class Playfield{
   color p2Col = color(0,0,255);
   // the color for when a key is dead
   color dead  = color(0);
-  
-    int time;
-  int interval = 3;
-  
+
+
   // colors for keys 2 to 0
-  
   color rect2;
   color rect3;
   color rect4;
@@ -57,7 +54,6 @@ class Playfield{
   rect4 = p1Col;
   rect5 = p1Col;
   rectQ = p1Col;
-
   rectT = p1Col;
   rectA = p1Col;
   rectG = p1Col;
@@ -245,9 +241,8 @@ class Playfield{
     fillColorP2 = false;
   }
   }
-  // the color of the key is change to black and are consder dead. 
-  void keyPressed() {
-    
+  // To keep this short...the color of the key is change to black and are consder dead when a current key has been pressed. 
+  void keyPressed() { 
     // all if Player1 keys are killed
     if(key == currentKey && currentKey == '2'){
         rect2 = dead;   
