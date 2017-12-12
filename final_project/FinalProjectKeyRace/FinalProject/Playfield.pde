@@ -1,5 +1,4 @@
-//werfds
-//uiolkj
+
 
 class Playfield{
   // the color for player 1's keys
@@ -173,20 +172,18 @@ class Playfield{
     // p2's target box
     rect(575,140,size,size);
     
-    // Taget text
+    // Taget text box for each player
     fill(0);
     textSize(40);
     text(currentKey, 277,190);
     text(currentKeyP2, 600,190);
     
-    // key text
+    // key text which are display on top of the rects
     fill(255);
-   
     text("2", 150,300);
     text("3", 230,300);
     text("4", 310,300);
     text("5", 390,300);
-
     text("7", 550,300);
     text("8", 630,300);
     text("9", 710,300);
@@ -210,11 +207,12 @@ class Playfield{
     text(",",730,530);
     text(".",810,530);
     
+    // Displays the cruent lap for each player separately.
     fill(0,255,0);
     text("Laps: " +  laps,100,50);
     text("Laps: " +  lapsP2,600,50);
     
-    
+    //This refills the keyColors back to Red when player 1 completes a lap. 
     if(fillColor == true){
     rect2 = color(255,0,0); 
     rect3 = color(255,0,0);  
@@ -230,8 +228,7 @@ class Playfield{
     rectC = color(255,0,0); 
     fillColor = false;
     }
-      
-
+      //This refills the keyColors back to Blue when player 2 completes a lap. 
      if (fillColorP2 == true){
     rectN = color(0,0,255); 
     rect7 = color(0,0,255); 

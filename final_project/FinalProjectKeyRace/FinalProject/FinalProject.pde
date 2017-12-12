@@ -1,20 +1,36 @@
-// Key or Respeak!
+// KeyRace
 
-//This is a 2 player game that uses vreous keys on the keybourd, and the mic.
-// Bsically you have a sets of keys on the keybournd for each player must press down.
-// There given a taget key that they must pressdown and the player must press all the targeted keys to win the game.
-// However....
-// If any player were to speak or make a loud sound.
-// all keys will reset: meaning all players will have to start from the start again. 
+//This is a 2 player game that uses the keybord like a race track. 
+// Player 1                                                                   Player 2
+// starts on key 2                                                            starts on key 7. 
+// must loop around from keys 2345tgvcxzaq2 in this order and clock wise      must loop around from keys 7890p;.,mnhy7 in this order and clock wise
+// is the Red Track                                                           is the Blue Track
+// Goal
+// Each player must make 20 laps around the key Track to win.
+// The target key in the box above is the next on your track that you must press. 
+// Who can finsh the the race around the keybored first? 
 
-// this is a trick that can keep the other player from winning, although this will reset your keys as well.
-// Are you down to key or are you down to speak?
-// speak wisely. 
+//References
 
+// The background music is Star Fox Corneria Remix by Kougeman22 on youtube. 
+// https://www.youtube.com/watch?v=MSyToOdMWVk
+
+// The back racetrack video is NASCAR: Sounds of Speed by RockyTopTN11 on youtube. 
+// https://www.youtube.com/watch?v=qyxvPiOqEiE&t=30s
+
+// The Race flag image was taken from pixabay.com
+// https://pixabay.com/en/checker-flags-racing-flags-flag-296805/
+
+// I created all other sounds using Soundation 
+//https://soundation.com/
+
+// Notes in the end I ended up not using Pippen code becuse I found it easyer to
+// create the laps idea from my own knowlage and what I already had. 
+// Im not sure how to properly create fixed postions with a for loop. 
 import ddf.minim.*;
 import processing.sound.*;
 import processing.video.*;
-//class for the game space pn the screen // 
+//class for the game space on the screen // 
 Playfield playfield;
 Sound sound;
 Minim minim;
@@ -28,9 +44,6 @@ SoundFile FinalLapSound;
 SoundFile Bgm;
 
 Movie vid;
-
-// the dojo background
-PImage racetrack;
 
 // this is the control keys for player 1
 //String pressedKeys = "";
@@ -91,9 +104,8 @@ void setup() {
 }
 
 void draw() {
-
+   background(#F70FE8);
    image(vid, 0, -100, 1000, 900);
- 
   sound.update();
   playfield.display();
   gameover.display();

@@ -1,14 +1,15 @@
 // Key race
 
-// This is the working prodotype for my game.
-// its a 2 player game where you have to try and remove the other players and keeping them from tuching yours. 
+// Key race is a  2 player game where each player must use the keyBorad like a race track and try to complete 20 laps. 
+// the track goes like a cricler loop moving clockwise. 
 
 // Rules // 
-// Both player must try and touch and keys on the other players side of the screen/keyborad. 
-// Players must touch the key the program tells them to, Which is under target. 
-// when a key is touch a key is consder dead
-// when all keys on your side of the screen are dead you lose. 
-// the only obstacle in the game is the other person's hand. 
+//
+// Player 1 starts at key 2
+// Player 2 starts at key 7
+// there will be a box above each onScreen race track to show which must be pressed next on the track. 
+// The top of the screen will display what lap the player is on. 
+// lap 19 is the final lap. 
 
 
 //class for the game space pn the screen // 
@@ -20,23 +21,14 @@ Gameover gameover;
 import processing.sound.*;
 SoundFile Bgm;
 
-// the dojo background
-PImage Racetrack;
-
 // this is the control keys for player 1
-// and the keys for lap 1;
+// 
 String pressedKeys = "";
 String possibleKeys =  "54321qwertgfdsazxcv";
-// and the keys for lap 2;
-String pressedKeysLap1 = "";
-String possibleKeysLap1 =  "cxzasdfgtrewq12345";
-// and the keys for the final lap;
-String pressedKeysLap2 = "";
-String possibleKeysLap2 =  "4321qwertgfdsazxcv";
+
 // the current key for player 1 to press. 
 char   currentKey;
-///////////////////////////////////////////////////////////
-
+///
 int keyIndex = 0;
 int keyIndexP2 = 0;
 
