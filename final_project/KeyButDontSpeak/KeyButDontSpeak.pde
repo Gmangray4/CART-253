@@ -1,11 +1,12 @@
 // Title: KEY BUT DON'T SPEAK!!
+//By Gordon Roland Gray
 
 // This is a 2 player game that uses vreous keys on the keybourd, and the mic.
 // Bsically you have a sets of keys on the keybournd for each player must press down.
 // There given a taget key that they must pressdown and the player must press all the targeted keys to win the game.
 // However....
 // If any player were to speak or make a loud sound.
-// all keys will reset: meaning all players will have to start from the start again. 
+// all keys will reset: meaning all players will have to start from the beginning again. 
 
 // this is a trick that can keep the other player from winning, although this will reset your keys as well.
 // Are you down to key or are you down to speak?

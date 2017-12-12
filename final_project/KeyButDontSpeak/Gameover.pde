@@ -21,6 +21,15 @@ class Gameover {
      textSize(20);
      text("Player 2 wins", 390,185);
    }
-   
+    //Rare! CONDATION
+   // if both players end at the same time...
+   if(p1wins && p2wins == true){
+       //create a text box that says.... Draw
+     fill(246,255,3);
+     rect(370,140,160,75);
+     fill(0,0,255);
+     textSize(20);
+     text("Draw", 390,185);
+   }
 }
 }
